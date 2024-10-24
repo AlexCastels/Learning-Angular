@@ -106,4 +106,4 @@ esempio: <input (input)="miaFunc($event)"> in questa maniera possiamo accedere a
 
 - two way
 
-un esempio è quando un input modifica qualche variabile o proprietà nel componente classe
+Si tratta di collegare il componente sia lato HTML che logico da entrambi i lati

@@ -1,12 +1,7 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatChipsModule} from '@angular/material/chips';
 
 @Component({
     selector: 'app-prova',
-    standalone: true,
-    imports: [MatCardModule, MatChipsModule, MatProgressBarModule],
     templateUrl: './prova.component.html',
     styleUrl: './prova.component.css',
 })

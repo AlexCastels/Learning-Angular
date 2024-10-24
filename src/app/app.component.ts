@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ProvaComponent } from "./prova/prova.component";
-import { BtnComponent } from "./btn/btn.component";
-import { InputComponent } from './input/input.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, ProvaComponent, BtnComponent , InputComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
