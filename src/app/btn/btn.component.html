@@ -1,6 +1,4 @@
-<section>
-    <div class="example-label">Il mio bottone: </div>
-    <div class="example-button-row">
-        <button mat-raised-button [disabled]="isDisable">Basic</button>
-    </div>
-</section>
+<button mat-raised-button [disabled]="isDisable" (click)="handleBtn()">Basic</button>
+<!-- <button mat-raised-button (click)="handleBtn(this)">Basic</button>
+con this passato come argomento abbiamo la possibilità di poter accedere all'intero componente -->
+

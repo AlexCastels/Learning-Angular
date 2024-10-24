@@ -15,4 +15,7 @@ export class BtnComponent {
     
     isDisable = false
 
+    handleBtn(){
+        console.log('click');   
+    }
 }

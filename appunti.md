@@ -67,7 +67,7 @@ il caricamento dei vari dati
 10. Funzione dopo che avviene il controllo della vista
 11. Funzione che avviene dopo la distruzione del comp
 
-## DATA BINDING / PASSAGGIO DI DATI TRA MODEL (LOGICA) E VIEW
+## DATA BINDING / PASSAGGIO DI DATI TRA MODEL (LOGICA) E VIEW IN COMPONENTE
 
 Ci sono due tipi di passaggio di dati:
 - unidirezionale || one-way
@@ -76,14 +76,14 @@ Ci sono due tipi di passaggio di dati:
     - event binding
 - bidirezionale || two way
 
-1. string interpolation
+- string interpolation
 
  possiamo utilizzare delle proprietà della classe per salvare stringhe e utilizzarli nel nostro html dentro le {{ }},
  al loro interno è possibile utilizzare qualsiasi espressione, come conditional , ternario , funzioni, variavili ecc
  il codice al suo interno non può essere multiriga.
  Si intende qualsiasi espressione js che può essere tramutata in stringa
 
-2. property binding
+- property binding
 
 Riferito agli attributi degli elementi HTML, dove possiamo modificarli attraverso il nostro componente classe
 ad esempio può essere una class o un attributo di un btn.
@@ -95,10 +95,15 @@ isDisabled = false || immagine1 = 'http//ecc'
 <button [disabled]='isDisabled'> 
 <img [src]='immagine1'>
 
-3. event binding
+- event binding
 
-riferito agli eventi in ascolto
+Riferito agli eventi in ascolto
+per poter collegare un metodo del nostro componente classe a un elemento HTML dovremo utilizzare le () specificando il tipo di evento e poi associarlo al metodo che dichiareremo nel componente
 
-4. two way
+esempio: <btn (click)='onClick()'> aggiungendo il parametro 'this' alla funzione possiamo accedere all'intero componente
+
+esempio: <input (input)="miaFunc($event)"> in questa maniera possiamo accedere all'obj evento di un input passandolo alla funzione
+
+- two way
 
 un esempio è quando un input modifica qualche variabile o proprietà nel componente classe
