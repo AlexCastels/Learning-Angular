@@ -33,6 +33,7 @@ i componenti in angular vengono chiamati nome.component.html ecc e divisi in car
 - ng generate component -> ng g c nomeCopm
 
 # CICLO DI VITA COMPONENTE
+
 <img src='./public/img/cicloComp.jpg' width=400>
 
 Il ciclo di vita di un componente in Angular è più articolato rispetto a react, si compone da diverse fasi, 
