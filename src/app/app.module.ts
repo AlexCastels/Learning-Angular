@@ -22,8 +22,9 @@ import { MatChipsModule } from '@angular/material/chips';
 
 import { NgModel } from '@angular/forms';
 import { MappingComponent } from "./mapping/mapping.component";
+import { SwitchComponent } from "./switch/switch.component";
 @NgModule({
-    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent],
+    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent],
     imports: [
         RouterOutlet,
         BrowserModule,

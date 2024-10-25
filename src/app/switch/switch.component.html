@@ -1,0 +1,13 @@
+<h2>Prova Switch Case</h2>
+<div class="container">
+    <div [ngSwitch]="stringa">
+        <p *ngSwitchCase="'Alex'">Caso 1</p>
+        <p *ngSwitchCase="'Sofia'">Caso 2</p>
+        <p *ngSwitchDefault>Default</p>
+    </div>
+    <div [ngSwitch]="numero">
+        <p *ngSwitchCase="1">Caso 1</p>
+        <p *ngSwitchCase="2">Caso 2</p>
+        <p *ngSwitchDefault>Default</p>
+    </div>
+</div>

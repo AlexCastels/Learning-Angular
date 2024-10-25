@@ -122,7 +122,7 @@ Dunque ngModel non avrà bisogno di essere associato ad un metodo, esso stesso �
 
 # DIRETTIVE
 
-Le direttive in Angular sono delle classi che possono essere utilizzate nei nostri elementi HTML per poter cambiare il loro comportamento, ad esempio ngModel che permette di potersi collegare ad una variabile.
+Le direttive in Angular sono degli attributi che possono essere utilizzati nei nostri elementi HTML per poter cambiare il loro comportamento, ad esempio ngModel che permette di potersi collegare ad una variabile.
 
 si dividono in 3 categorie:
 - built-in : (ngClass , ngStyle, ngModel) modificano il comportamento dell'elemento
@@ -220,3 +220,24 @@ Inoltre sono presenti altri elementi nel *ngFor a cui poter far riferimento.
 - last : ritorna true se è l'ultimo elemento
 - even : ritorna true se è dispari
 - odd : ritorna true se è pari
+
+# [ngSwitch] e *ngSwitchCase
+
+Un altra direttiva esistente è quella dello switch
+
+```
+<div [ngSwitch]="stringa">
+    <p *ngSwitchCase="'Alex'">Caso 1</p>
+    <p *ngSwitchCase="'Sofia'">Caso 2</p>
+    <p *ngSwitchDefault>Default</p>
+</div>
+<div [ngSwitch]="numero">
+    <p *ngSwitchCase="1">Caso 1</p>
+    <p *ngSwitchCase="2">Caso 2</p>
+    <p *ngSwitchDefault>Default</p>
+</div>
+```
+
+Dove *ngSwitchCase si occuperà effettivamente di mostrare l'elemento in base alla condizione
+
+Mentre [ngSwitch] si collegherà alla proprietà nel class component
