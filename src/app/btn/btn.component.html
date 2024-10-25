@@ -1,4 +1,8 @@
-<button mat-raised-button [disabled]="isDisable" (click)="handleBtn()">Basic</button>
+<h2>Prova Btn</h2>
+<div class="container">
+    <button class="btn" mat-raised-button [disabled]="isDisable" (click)="handleBtn()">Cliccami</button>
+    <p>Hai cliccato: {{count}} volte</p>
+</div>
 <!-- <button mat-raised-button (click)="handleBtn(this)">Basic</button>
 con this passato come argomento abbiamo la possibilità di poter accedere all'intero componente -->
 

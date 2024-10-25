@@ -1,0 +1,14 @@
+<h2>Prova del mapping</h2>
+<div class="container">
+    <div *ngFor="let item of utenti" class="singleContainer">
+        <p>{{item.nome}}</p>
+        <p>{{item.cognome}}</p>
+        <span *ngIf="item.isOnline ; then online else offline"></span>
+        <ng-template #online>
+            <span class="online"></span>
+        </ng-template>
+        <ng-template #offline>
+            <span class="offline"></span>
+        </ng-template>
+    </div>
+</div>

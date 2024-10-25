@@ -1,8 +1,11 @@
-<mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <!-- <input matInput placeholder="Ex. Pizza" [value]='data' (input)="handleInput($event)"> -->
-    <input matInput placeholder="Ex. Pizza" [(ngModel)]="data">
-
-</mat-form-field>
-<p>il mio dato è: {{data}}</p>
-<button (click)="handleBtn()">Clear</button>
+<div>
+    <h2>Prova Input</h2>
+    <mat-form-field class="example-full-width">
+        <mat-label>Favorite food</mat-label>
+        <!-- <input matInput placeholder="Ex. Pizza" [value]='data' (input)="handleInput($event)"> -->
+        <input matInput placeholder="Ex. Pizza" [(ngModel)]="data">
+    
+    </mat-form-field>
+    <p>il mio dato è: {{data}}</p>
+    <button (click)="handleBtn()">Clear</button>
+</div>

@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.singleContainer{
+    display: flex;
+    gap: 10px;
+}
+
+.online , .offline{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.offline{
+    background-color: red;
+}
+
+.online{
+    background-color: yellowgreen;
+}

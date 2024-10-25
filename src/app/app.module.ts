@@ -21,8 +21,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NgModel } from '@angular/forms';
+import { MappingComponent } from "./mapping/mapping.component";
 @NgModule({
-    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent],
+    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent],
     imports: [
         RouterOutlet,
         BrowserModule,

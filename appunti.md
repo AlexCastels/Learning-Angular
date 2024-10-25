@@ -165,3 +165,57 @@ altro esempio con then:
 ```
 
 In questo caso in maniera più coerente dichiariamo due blocchi ng-template associati a due variabili template (wrapper)
+
+# *ngFor (Mapping)
+
+Permette di mappare dati dentro elementi HTML in maniera dinamica. *ngFor è un attributo dell'elemento da voler ripetere
+
+```
+<li *ngFor="let item of array">{{item.nome}}</li>
+```
+
+Per poter utilizzarlo, viene dichiarata una variabile che farà riferimento al singolo obj contenuto in un array
+Successivamente potremo accedere all'elemento del singolo obj tramite la string interpolation. Verranno creati tanti < li > quanti gli elementi presenti nell'array.
+
+*ngFor può essere utilizzato anche nei div, tutto quello contenuto al suo interno sarà generato a seconda degli elementi contenuti nell'array
+
+
+```
+let persone = [{nome : luca , cognome : bianchi , isOnline : false}]
+
+<div *ngFor="let persona of persone">
+    <p>{{persona.nome}}</p>
+    <p>{{persona.cosgnome}}</p> <span * ngIf="persona.isOnline">Online</span>
+</div>
+```
+
+Possiamo coordinare *ngFor e *ngIf per poter mostrare di una lista ciò che più vogliamo 
+
+```
+<div *ngFor="let item of utenti" class="container">
+    <p>{{item.nome}}</p>
+    <p>{{item.cognome}}</p>
+    <span *ngIf="item.isOnline ; then online else offline"></span>
+    <ng-template #online>
+        <span class="online"></span>
+    </ng-template>
+    <ng-template #offline>
+        <span class="offline"></span>
+    </ng-template>
+</div>
+```
+
+Inoltre sono presenti altri elementi nel *ngFor a cui poter far riferimento.
+
+```
+<div *ngFor="let item of list ; index ad i , count as c , first ad isFirst , last as isLast , even as isEven , odd as isOdd ">
+    <p>{{i}} {{item.nome}}</p>
+</div>
+```
+
+- index : prende l'indice di riferimento nell'array
+- count : recupera il conteggio totale degli elementi nell'array
+- first : ritorna true se è il primo elemento
+- last : ritorna true se è l'ultimo elemento
+- even : ritorna true se è dispari
+- odd : ritorna true se è pari

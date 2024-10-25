@@ -9,8 +9,9 @@ import { Component } from '@angular/core';
 export class BtnComponent {
     
     isDisable = false
+    count = 0
 
     handleBtn(){
-        console.log('click');   
+        this.count ++   
     }
 }
