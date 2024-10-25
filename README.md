@@ -34,7 +34,7 @@ i componenti in angular vengono chiamati nome.component.html ecc e divisi in car
 
 # CICLO DI VITA COMPONENTE
 
-<img src='./public/img/cicloComp.jpg' width=400>
+![Ciclo di vita componente](public/img/cicloComp.jpg)
 
 Il ciclo di vita di un componente in Angular è più articolato rispetto a react, si compone da diverse fasi, 
 dalla sua inizializzazione , al suo effettivo utilizzo , alla vista e alla sua fine.
