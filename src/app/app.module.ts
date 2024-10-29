@@ -23,8 +23,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { NgModel } from '@angular/forms';
 import { MappingComponent } from "./mapping/mapping.component";
 import { SwitchComponent } from "./switch/switch.component";
+import { FatherComponent } from "./father/father.component";
+import { ChildComponent } from "./child/child.component";
 @NgModule({
-    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent],
+    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent , FatherComponent , ChildComponent],
     imports: [
         RouterOutlet,
         BrowserModule,

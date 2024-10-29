@@ -209,7 +209,7 @@ Possiamo coordinare *ngFor e *ngIf per poter mostrare di una lista ciò che più
 Inoltre sono presenti altri elementi nel *ngFor a cui poter far riferimento.
 
 ```
-<div *ngFor="let item of list ; index ad i , count as c , first ad isFirst , last as isLast , even as isEven , odd as isOdd ">
+<div *ngFor="let item of list ; index as i , count as c , first ad isFirst , last as isLast , even as isEven , odd as isOdd ">
     <p>{{i}} {{item.nome}}</p>
 </div>
 ```
@@ -241,3 +241,38 @@ Un altra direttiva esistente è quella dello switch
 Dove *ngSwitchCase si occuperà effettivamente di mostrare l'elemento in base alla condizione
 
 Mentre [ngSwitch] si collegherà alla proprietà nel class component
+
+# ngStyle
+
+E' una direttiva che permette di andare a modificare direttamente lo stile di un elemento tramite il binding della direttiva stessa, funziona inserendo un obj dove poter andare a scrivere direttamente le prooprietà css da modificare, al suo interno è possibile puntare a variabili, richiamare funzioni, utilizzare condizionali.
+
+Le proprietà possono essere scritte tra apici in maniera 'originale' al css, o in camelCase e ridotti se fuori da apici
+
+Esempi:
+
+```
+<div class='cerchio' [ngStyle]="{'background-color' : 'red'}">
+<div class='cerchio' [ngStyle]="{background : 'red'}">
+<div class='cerchio' [ngStyle]="{background : persona.isOnline ? 'green' : 'red'}">
+<div class='cerchio' [ngStyle]="{background : getColor()}">
+```
+
+# ngClass
+
+E' una direttiva che permette di modificare le classi di un elemento, bisognerà fare il binding della direttiva per poter accedere alle classi del nostro css e alle variabili del nostro componente 
+
+```
+<div class = 'cerchio' [ngClass]="{'classe' : condizione, 'classe' : condizione}">
+<div class = 'cerchio' [ngClass]="{'classe' : condizione, 'classe' : condizione, 'classe1 classe2' : condizione}">
+<div class = 'cerchio' [ngClass]="{condizione ? 'classe1' : 'classe2'}">
+```
+
+# PARENT TO CHILD (PROP)
+
+Bisogna utilizzare un decoratore @Input di angular/core per poter indicare al nostro componente che riceverà dei dati dall'esterno
+
+@Input() variabile : tipo; -> @Input() data : any;
+
+Per poter ricevere dati, utilizziamo il property binding per poter puntare alla variabile e associargli un dato
+
+<child [data]="dato">
