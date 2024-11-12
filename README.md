@@ -282,6 +282,8 @@ Per poter ricevere dati, utilizziamo il property binding per poter puntare alla 
 E' possibile anche mandare dati dal comp figlio al comp padre tramite un EventEmitter che dovremo collegare al dato che vogliamo mandare , il tutto tramite un decoratore @Output.
 
 Creiamo un nuovo emitter dove poi andremo a dichiarare quali dati mandare tramite un evento che lancerà l'emitter
+'mandaDatiEvento' sarà l'emitter in sè
+
 
 ```
 @Output() mandaDatiEvento = new EventEmitter<Type>()
@@ -293,5 +295,15 @@ myFunction(){
 }
 ```
 
-dopo di che utilizzeremo l'event binding nel componente padre per tracciare la nostra funzione che lancia l'emitter
-e potremo accedere ai dati inviati tramite $event
+dopo di che dovremo lanciare questa funzione per generare l'eventEmitter, nell'esempio un btn ma potrebbe essere anche una funzione del ciclo di vita del componente ad esempio
+
+Fatto questo bisognerà anche creare il collegamento con la funzione nel componente padre, dove nel child dichiarato punteremo all'emitter e dichiareremo una funzione che conterrà l'evento e che potremo utilizzare e richiamare nel componente padre, $event in sè conterrà i dati da noi mandati e dichiarati (nell'esempio una stringa)
+
+```
+<child (mandaDatiEvento)="riceviDati($event)">
+```
+
+riceviDati() sarà cos' accessibile al padre
+
+Questo è un modo per poter mandare dati in modo inverso
+

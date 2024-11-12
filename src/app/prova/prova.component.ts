@@ -29,27 +29,27 @@ export class ProvaComponent implements OnInit , AfterContentChecked , AfterConte
     usually kept as a companion animal or for showing.`;
 
     constructor() {
-        console.log('constructor');    
+        // console.log('constructor');    
     }
     ngOnInit(): void {
-        console.log('ngOnInit');
+        // console.log('ngOnInit');
     }
     ngAfterContentChecked(): void {
-        console.log('ngAfterContentChecked'); 
+        // console.log('ngAfterContentChecked'); 
     }
     ngAfterContentInit(): void {
-        console.log('ngAfterContentInit'); 
+        // console.log('ngAfterContentInit'); 
     }
     ngAfterViewChecked(): void {
-        console.log('ngAfterViewChecked'); 
+        // console.log('ngAfterViewChecked'); 
     }
     ngAfterViewInit(): void {
-        console.log('ngAfterViewInit'); 
+        // console.log('ngAfterViewInit'); 
     }
     ngDoCheck(): void {
-        console.log('ngDoCheck'); 
+        // console.log('ngDoCheck'); 
     }
     ngOnDestroy(): void {
-        console.log('ngOnDestroy'); 
+        // console.log('ngOnDestroy'); 
     }
 }
