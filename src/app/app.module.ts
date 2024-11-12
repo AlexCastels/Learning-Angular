@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { ElementRef, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { RouterOutlet } from '@angular/router';
@@ -25,8 +25,9 @@ import { MappingComponent } from "./mapping/mapping.component";
 import { SwitchComponent } from "./switch/switch.component";
 import { FatherComponent } from "./father/father.component";
 import { ChildComponent } from "./child/child.component";
+import { ElementRefComponent } from "./element-ref/element-ref.component";
 @NgModule({
-    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent , FatherComponent , ChildComponent],
+    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent , FatherComponent , ChildComponent, ElementRefComponent],
     imports: [
         RouterOutlet,
         BrowserModule,

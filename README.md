@@ -307,3 +307,26 @@ riceviDati() sarà cos' accessibile al padre
 
 Questo è un modo per poter mandare dati in modo inverso
 
+# VARIABILE TEMPLATE (Riferimetno elementi HTML)
+
+Si tratta di variabili di riferimento per poter accedere ai nostri elementi HTML, utile nei form.
+
+Viene utilizzato un decoratore ViewChild() nel nostro componente che sarà collegato alla variabile di riferimento
+
+
+```
+<input #riferimento value='ciao'>
+```
+
+```
+@ViewChild('riferimento') = mioInput !: ElementRef<HTMLInputElement>
+```
+
+ElementRef è il modo corretto del tipo di dato per il decoratore viewChild, ma potrebbe contenere un valore nullo anche se correttamente dichiarato, per poter evitare questo problema utilizziamo il !: per dichiarare che non sarà nullo
+
+adesso la variabile mioInput conterrà l'obj che fa riferimento all'input e al suo contenuto, conterrà i nativeElement al suo interno e poi ai loro valori, questo perchè è possibile contenere più elementi con un unico riferimento 
+
+```
+value = this.mioInput.nativeElement.value
+```
+
