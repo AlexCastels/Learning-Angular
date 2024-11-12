@@ -2,6 +2,10 @@
 <div [ngStyle]="{'border' : '1px solid black', 'padding' : '10px'}">
     <h2 >Sono il componente padre</h2>
     <div *ngFor="let item of utenti">
-        <app-child [data]="item"></app-child>
+        <app-child (mandaDatiEvento)="dataChild($event)" [data]="item"></app-child>
     </div>
 </div>
+
+<!-- bisognerà ascoltare l'event emitter che manderà una funzione accessibile al componente padre, in questo caso
+"dataChild($event)" è l'evento in se conterrà i dati che abbiamo deciso di mandare tramite il figlio, accedendo
+all'evento della funzione avremo accesso ai dati-->

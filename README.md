@@ -109,7 +109,7 @@ esempio: <btn (click)='onClick()'> aggiungendo il parametro 'this' alla funzione
 esempio: <input (input)="miaFunc($event)"> in questa maniera possiamo accedere all'obj evento di un input passandolo alla funzione
 ```
 
-- two way nimding 
+- two way binding 
 
 Si tratta di collegare il componente sia lato HTML che logico da entrambi i lati, utilizzando delle direttive
 
@@ -276,3 +276,22 @@ Bisogna utilizzare un decoratore @Input di angular/core per poter indicare al no
 Per poter ricevere dati, utilizziamo il property binding per poter puntare alla variabile e associargli un dato
 
 <child [data]="dato">
+
+# CHILD TO PARENT
+
+E' possibile anche mandare dati dal comp figlio al comp padre tramite un EventEmitter che dovremo collegare al dato che vogliamo mandare , il tutto tramite un decoratore @Output.
+
+Creiamo un nuovo emitter dove poi andremo a dichiarare quali dati mandare tramite un evento che lancerà l'emitter
+
+```
+@Output() mandaDatiEvento = new EventEmitter<Type>()
+
+dato = "i miei dati"
+
+myFunction(){
+    this.mandaDatiEvento.emit(this.dato)    
+}
+```
+
+dopo di che utilizzeremo l'event binding nel componente padre per tracciare la nostra funzione che lancia l'emitter
+e potremo accedere ai dati inviati tramite $event
