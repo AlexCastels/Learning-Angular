@@ -404,3 +404,19 @@ E' importante definire se i dati devono essere public o private per poter accede
 
 dunque in questa maniera avremo accesso ai dati o ai metodi contenuti nel servizio definito
 è buona norma scollegare il componente dalla logica, e quindi utilizzare i servizi per contenerla
+
+# ROUTING
+
+Il routing in angular viene gestito tramite un modulo, dove andremo a specificare dentro un array di obj, path e relativo componente da mostrare
+
+```
+const routes: Routes = [
+    { path: '', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: '**', redirectTo: '' }, //per gestire il notFound
+];
+```
+
+Per poter poi mostrare effettivamente il componente dovremo utilizzare il tag <router-outlet> che si occuperà di mostrare il componente collegato al routing
+
+Per poter navigare verso quel componente abbiamo a disposizione un attributo chiamato routerLink="/" specificando il path

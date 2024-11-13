@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    gap: 10px;
+}
+
+.container div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 18px;
+}
+
+div a{
+    text-decoration: none;
+    color: #003785;
+}
+
+div a:hover{
+    text-decoration: underline;
+}

@@ -1,12 +1,12 @@
-import { ElementRef, NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { RouterModule } from "@angular/router";
+import { ElementRef, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from "./app.component";
-import { ProvaComponent } from "./prova/prova.component";
-import { BtnComponent } from "./btn/btn.component";
+import { AppComponent } from './app.component';
+import { ProvaComponent } from './prova/prova.component';
+import { BtnComponent } from './btn/btn.component';
 import { InputComponent } from './input/input.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,15 +21,34 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NgModel } from '@angular/forms';
-import { MappingComponent } from "./mapping/mapping.component";
-import { SwitchComponent } from "./switch/switch.component";
-import { FatherComponent } from "./father/father.component";
-import { ChildComponent } from "./child/child.component";
-import { ElementRefComponent } from "./element-ref/element-ref.component";
-import { HighlightDirective } from "./directive/highlight.directive";
-import { CustomDirectiveComponent } from "./custom-directive/custom-directive.component";
+import { MappingComponent } from './mapping/mapping.component';
+import { SwitchComponent } from './switch/switch.component';
+import { FatherComponent } from './father/father.component';
+import { ChildComponent } from './child/child.component';
+import { ElementRefComponent } from './element-ref/element-ref.component';
+import { HighlightDirective } from './directive/highlight.directive';
+import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { RoutingTestComponent } from './routing-test/routing-test.component';
 @NgModule({
-    declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent , FatherComponent , ChildComponent, ElementRefComponent, HighlightDirective, CustomDirectiveComponent],
+    declarations: [
+        AppComponent,
+        ProvaComponent,
+        BtnComponent,
+        InputComponent,
+        MappingComponent,
+        SwitchComponent,
+        FatherComponent,
+        ChildComponent,
+        ElementRefComponent,
+        HighlightDirective,
+        CustomDirectiveComponent,
+        HomeComponent,
+        AboutComponent,
+        RoutingTestComponent
+    ],
     imports: [
         RouterOutlet,
         BrowserModule,
@@ -45,11 +64,11 @@ import { CustomDirectiveComponent } from "./custom-directive/custom-directive.co
         MatCardModule,
         MatProgressBarModule,
         MatChipsModule,
+        AppRoutingModule,
     ],
-    providers : [],
-    bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent],
 })
-
 export class AppModule {}
 
 //esempio di NgModule
