@@ -336,6 +336,8 @@ Per poter creare una direttiva personalizzata utilizzeremo un comando di angular
 
 ng generate directive nomeDirettiva -> ng g d nomeDirettiva
 
+Devono essere importate nel modulo dove vogliamo utilizzarle
+
 Vengono utilizzate come se fossero attributi degli elementi, e ci danno la possibilità di accedere a valori e poter modificare l'elemento in se, visto che esse diventano delle proprietà dell'elemento altrimenti un riferimento
 
 ```
