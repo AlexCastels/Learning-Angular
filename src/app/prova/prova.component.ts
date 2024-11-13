@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { ServizioProvaService } from '../services/servizio-prova.service';
 
 @Component({
     selector: 'app-prova',
@@ -28,11 +29,9 @@ export class ProvaComponent implements OnInit , AfterContentChecked , AfterConte
     Mexican state of Chihuahua and is among the smallest of all dog breeds. It is
     usually kept as a companion animal or for showing.`;
 
-    constructor() {
-        // console.log('constructor');    
-    }
+    constructor(public serviceUser : ServizioProvaService) {}
     ngOnInit(): void {
-        // console.log('ngOnInit');
+        console.log(this.serviceUser.getUsers());
     }
     ngAfterContentChecked(): void {
         // console.log('ngAfterContentChecked'); 

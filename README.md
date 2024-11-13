@@ -378,5 +378,29 @@ esempi:
 Le pipe sono funzione messe a disposizione da angular per modificare velocemente alcuni dati immessi nelle {{}}
 E' possibile creare anche pipe personalizzate, ad esempio utilizzate per delle traduzioni
 
-Le pipe hanno molte opzioni, queste vengono elencate tutte nella documentazione
+Le pipe hanno molte opzioni, queste vengono elencate tutte nella documentazione ufficiale.
 
+# SERVICES (CONTETX)
+
+E' la possibilità di poter estendere dei dati all'intera app o a diversi moduli specificati
+
+Slega i componenti dalla relazione padre figlio, ed evita il "Prop drilling"
+
+un service viene creato con ng generate service nomeServizio -> ng g s nomeServizio
+
+è composto da un decoratore @Injectable che sta ad indicare che può 'iniettare' dati
+e possiede una proprietà provideIn che sta ad indicare il suo scope di utilizzo
+
+Se impostato su 'root' sarà accessibile ovunque, altrimenti bisognerà specificare il module
+
+Per accedere ad un servizio invece, bisognerà richiamarlo dentro il constructor della classe
+
+```
+    constructor(private variabilePerServizio : MyServiceComponent){
+        data = this.variabilePerServizio.array(o metodo ecc ecc)
+    }
+```
+E' importante definire se i dati devono essere public o private per poter accedervi in questa maniera tramite constructor
+
+dunque in questa maniera avremo accesso ai dati o ai metodi contenuti nel servizio definito
+è buona norma scollegare il componente dalla logica, e quindi utilizzare i servizi per contenerla

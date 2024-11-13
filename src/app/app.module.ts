@@ -26,7 +26,7 @@ import { SwitchComponent } from "./switch/switch.component";
 import { FatherComponent } from "./father/father.component";
 import { ChildComponent } from "./child/child.component";
 import { ElementRefComponent } from "./element-ref/element-ref.component";
-import { HighlightDirective } from "./direttive/highlight.directive";
+import { HighlightDirective } from "./directive/highlight.directive";
 import { CustomDirectiveComponent } from "./custom-directive/custom-directive.component";
 @NgModule({
     declarations: [AppComponent , ProvaComponent , BtnComponent , InputComponent , MappingComponent , SwitchComponent , FatherComponent , ChildComponent, ElementRefComponent, HighlightDirective, CustomDirectiveComponent],
