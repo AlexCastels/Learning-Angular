@@ -30,7 +30,7 @@
 Questo comando permette di creare un nuovo componente, tramite Angular CLI verranno creati tutti i file per gestire un comp
 cioè .html .css .spec.ts e .ts
 i componenti in angular vengono chiamati nome.component.html ecc e divisi in cartelle
-- ng generate component -> ng g c nomeCopm
+- `ng generate component` -> `ng g c nomeCopm`
 
 # CICLO DI VITA COMPONENTE
 
@@ -79,7 +79,7 @@ Ci sono due tipi di passaggio di dati:
 
 - string interpolation
 
- possiamo utilizzare delle proprietà della classe per salvare stringhe e utilizzarli nel nostro html dentro le {{ }},
+ possiamo utilizzare delle proprietà della classe per salvare stringhe e utilizzarli nel nostro html dentro le `{{ }}`,
  al loro interno è possibile utilizzare qualsiasi espressione, come conditional , ternario , funzioni, variavili ecc
  il codice al suo interno non può essere multiriga.
  Si intende qualsiasi espressione js che può essere tramutata in stringa
@@ -89,7 +89,7 @@ Ci sono due tipi di passaggio di dati:
 Riferito agli attributi degli elementi HTML, dove possiamo modificarli attraverso il nostro componente classe
 ad esempio può essere una class o un attributo di un btn.
 Per poter collegare un attributo HTML ad una proprietà del componente possiamo semplicemente racchiudere 
-tra [] gli attributi ed inserire tra apici la proprietà
+tra `[]` gli attributi ed inserire tra apici la proprietà
 
 ```
 isDisabled = false || immagine1 = 'http//ecc'
@@ -143,8 +143,8 @@ esempio : <p *ngIf="4 < 5" > Hello World <p> se true l'elemento DOM sarà genera
 
 - Variabile template
 
-Si tratta di poter far riferimento un blocco di codice HTML racchiuso in un <ng-tamplate> e fargli riferimento, 
-questo blocco è visibile solamente ad Angular, utilizzato generalmente nel if/else, dunque se la variabile isVisible è true verrà mostrato il primo <p> altimenti verrà visualizzato l'ng-template associato con #bloccoElse
+Si tratta di poter far riferimento un blocco di codice HTML racchiuso in un `<ng-tamplate>` e fargli riferimento, 
+questo blocco è visibile solamente ad Angular, utilizzato generalmente nel if/else, dunque se la variabile isVisible è true verrà mostrato il primo `<p>` altimenti verrà visualizzato l'ng-template associato con #bloccoElse
 
 ```
 <p *ngIf="isVisible ; else bloccoElse">Sono visibile</p>
@@ -176,7 +176,7 @@ Permette di mappare dati dentro elementi HTML in maniera dinamica. *ngFor è un 
 ```
 
 Per poter utilizzarlo, viene dichiarata una variabile che farà riferimento al singolo obj contenuto in un array
-Successivamente potremo accedere all'elemento del singolo obj tramite la string interpolation. Verranno creati tanti < li > quanti gli elementi presenti nell'array.
+Successivamente potremo accedere all'elemento del singolo obj tramite la string interpolation. Verranno creati tanti `<li>` quanti gli elementi presenti nell'array.
 
 *ngFor può essere utilizzato anche nei div, tutto quello contenuto al suo interno sarà generato a seconda degli elementi contenuti nell'array
 
@@ -271,7 +271,7 @@ E' una direttiva che permette di modificare le classi di un elemento, bisognerà
 
 Bisogna utilizzare un decoratore @Input di angular/core per poter indicare al nostro componente che riceverà dei dati dall'esterno
 
-@Input() variabile : tipo; -> @Input() data : any;
+`@Input() variabile : tipo;` -> `@Input() data : any;`
 
 Per poter ricevere dati, utilizziamo il property binding per poter puntare alla variabile e associargli un dato
 
@@ -281,8 +281,7 @@ Per poter ricevere dati, utilizziamo il property binding per poter puntare alla 
 
 E' possibile anche mandare dati dal comp figlio al comp padre tramite un EventEmitter che dovremo collegare al dato che vogliamo mandare , il tutto tramite un decoratore @Output.
 
-Creiamo un nuovo emitter dove poi andremo a dichiarare quali dati mandare tramite un evento che lancerà l'emitter
-'mandaDatiEvento' sarà l'emitter in sè
+Creiamo un nuovo emitter dove poi andremo a dichiarare quali dati mandare tramite un evento che lancerà l'emitter. 'mandaDatiEvento' sarà l'emitter in sè
 
 
 ```
@@ -322,7 +321,7 @@ Viene utilizzato un decoratore ViewChild() nel nostro componente che sarà colle
 @ViewChild('riferimento') = mioInput !: ElementRef<HTMLInputElement>
 ```
 
-ElementRef è il modo corretto del tipo di dato per il decoratore viewChild, ma potrebbe contenere un valore nullo anche se correttamente dichiarato, per poter evitare questo problema utilizziamo il !: per dichiarare che non sarà nullo
+ElementRef è il modo corretto del tipo di dato per il decoratore viewChild, ma potrebbe contenere un valore nullo anche se correttamente dichiarato, per poter evitare questo problema utilizziamo il `!:` per dichiarare che non sarà nullo
 
 adesso la variabile mioInput conterrà l'obj che fa riferimento all'input e al suo contenuto, conterrà i nativeElement al suo interno e poi ai loro valori, questo perchè è possibile contenere più elementi con un unico riferimento 
 
@@ -334,7 +333,7 @@ value = this.mioInput.nativeElement.value
 
 Per poter creare una direttiva personalizzata utilizzeremo un comando di angular
 
-ng generate directive nomeDirettiva -> ng g d nomeDirettiva
+`ng generate directive nomeDirettiva` -> `ng g d nomeDirettiva`
 
 Devono essere importate nel modulo dove vogliamo utilizzarle
 
@@ -364,16 +363,16 @@ Più dettagli e spiegazioni nel componente custom-directive.ts
 
 Le pipe sono delle funzioni specifiche per gli elementi in string interpolation {{var}}
 
-Vengono richiamate tramite | e possono contenere delle opzioni per modificarne l'utilizzo
+Vengono richiamate tramite `|` e possono contenere delle opzioni per modificarne l'utilizzo
 
-esempi:
+Esempi:
 
-{{nome | uppercase}} -> stringa in upperCase
-{{nome | lowercase}} -> stringa in loweCase
-{{data | data:"h:m:s"}} {{data | data:"medium"}} {{data | data:"d/MMM/yyyy - h:m:s"}} -> formattiamo la data
-{{number | number:'1.2-4'}} -> specifichiamo i decimali di un numero
-{{number | percent}} {{nome | percent:'2.2-4'}} -> indichiamo la percentuale ed eventuali decimali
-{{number | currency:'EUR'}} {{number | currency:'EUR':'code'}} -> gestiamo la currency 
+- `{{nome | uppercase}}` -> stringa in upperCase
+- `{{nome | lowercase}}` -> stringa in loweCase
+- `{{data | data:"h:m:s"}}` `{{data | data:"medium"}}` `{{data | data:"d/MMM/yyyy - h:m:s"}}` -> formattiamo la data
+- `{{number | number:'1.2-4'}}` -> specifichiamo i decimali di un numero
+- `{{number | percent}}` `{{nome | percent:'2.2-4'}}` -> indichiamo la percentuale ed eventuali decimali
+- `{{number | currency:'EUR'}}` `{{number | currency:'EUR':'code'}}` -> gestiamo la currency 
 
 Le pipe sono funzione messe a disposizione da angular per modificare velocemente alcuni dati immessi nelle {{}}
 E' possibile creare anche pipe personalizzate, ad esempio utilizzate per delle traduzioni
@@ -386,9 +385,9 @@ E' la possibilità di poter estendere dei dati all'intera app o a diversi moduli
 
 Slega i componenti dalla relazione padre figlio, ed evita il "Prop drilling"
 
-un service viene creato con ng generate service nomeServizio -> ng g s nomeServizio
+un service viene creato con `ng generate service nomeServizio` -> `ng g s nomeServizio`
 
-è composto da un decoratore @Injectable che sta ad indicare che può 'iniettare' dati
+è composto da un decoratore `@Injectable` che sta ad indicare che può 'iniettare' dati
 e possiede una proprietà provideIn che sta ad indicare il suo scope di utilizzo
 
 Se impostato su 'root' sarà accessibile ovunque, altrimenti bisognerà specificare il module
@@ -417,6 +416,6 @@ const routes: Routes = [
 ];
 ```
 
-Per poter poi mostrare effettivamente il componente dovremo utilizzare il tag <router-outlet> che si occuperà di mostrare il componente collegato al routing
+Per poter poi mostrare effettivamente il componente dovremo utilizzare il tag `<router-outlet>` che si occuperà di mostrare il componente collegato al routing
 
-Per poter navigare verso quel componente abbiamo a disposizione un attributo chiamato routerLink="/" specificando il path
+Per poter navigare verso quel componente abbiamo a disposizione un attributo chiamato `routerLink="/"` specificando il path
