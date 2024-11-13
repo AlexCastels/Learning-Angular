@@ -330,3 +330,30 @@ adesso la variabile mioInput conterrà l'obj che fa riferimento all'input e al s
 value = this.mioInput.nativeElement.value
 ```
 
+# DIRETTIVE PERSONALIZZATE
+
+Per poter creare una direttiva personalizzata utilizzeremo un comando di angular
+
+ng generate directive nomeDirettiva -> ng g d nomeDirettiva
+
+Vengono utilizzate come se fossero attributi degli elementi, e ci danno la possibilità di accedere a valori e poter modificare l'elemento in se, visto che esse diventano delle proprietà dell'elemento altrimenti un riferimento
+
+```
+export class HighlightDirective {
+    @Input() appHighlight = ''
+    constructor(private element : ElementRef) {
+        this.element.nativeElement.style.backgroundColor = 'yellow'
+    }
+}
+```
+
+in questo esempio viene modificato direttamente il background dell'elemento ed impostato su giallo
+
+```
+    <p appHighlight>Hello World<p/>
+```
+
+le direttive possono inoltre ricevere dati da altri componenti, e sono disponibili in tutti i nostri file e
+vengono salvate in una cartella separata dai nostri componenti.
+
+Più dettagli e spiegazioni nel componente custom-directive.ts

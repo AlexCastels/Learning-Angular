@@ -1,0 +1,14 @@
+<h2>Direttive Personalizzate</h2>
+<div class="container">
+    <div class="colorContainer">
+        <div class="selectorTitle">
+            <p>Seleziona un colore per l'hover: </p>
+        </div>
+        <div class="selectorContainer">
+            <div class="selector" (click)="handleColor('red')"> </div>
+            <div class="selector" (click)="handleColor('yellow')"></div>
+            <div class="selector" (click)="handleColor('purple')"></div>
+        </div>
+    </div>
+    <h3 [appHighlight]="color" defaultColor="">Cambia colore!</h3>
+</div>

@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.colorContainer p{
+    margin-bottom: -2px;
+}
+
+.colorContainer{
+    display: flex;
+    align-items:center;
+    gap: 10px;
+}
+
+.selectorContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.selector{
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selector:nth-child(1){
+    background-color: red
+}
+
+.selector:nth-child(2){
+    background-color: yellow
+}
+
+.selector:nth-child(3){
+    background-color: purple
+}
+
+h3{
+    font-size: 20px;
+    font-weight:400;
+}
