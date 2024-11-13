@@ -359,3 +359,24 @@ le direttive possono inoltre ricevere dati da altri componenti, e sono disponibi
 vengono salvate in una cartella separata dai nostri componenti.
 
 Più dettagli e spiegazioni nel componente custom-directive.ts
+
+# PIPES
+
+Le pipe sono delle funzioni specifiche per gli elementi in string interpolation {{var}}
+
+Vengono richiamate tramite | e possono contenere delle opzioni per modificarne l'utilizzo
+
+esempi:
+
+{{nome | uppercase}} -> stringa in upperCase
+{{nome | lowercase}} -> stringa in loweCase
+{{data | data:"h:m:s"}} {{data | data:"medium"}} {{data | data:"d/MMM/yyyy - h:m:s"}} -> formattiamo la data
+{{number | number:'1.2-4'}} -> specifichiamo i decimali di un numero
+{{number | percent}} {{nome | percent:'2.2-4'}} -> indichiamo la percentuale ed eventuali decimali
+{{number | currency:'EUR'}} {{number | currency:'EUR':'code'}} -> gestiamo la currency 
+
+Le pipe sono funzione messe a disposizione da angular per modificare velocemente alcuni dati immessi nelle {{}}
+E' possibile creare anche pipe personalizzate, ad esempio utilizzate per delle traduzioni
+
+Le pipe hanno molte opzioni, queste vengono elencate tutte nella documentazione
+
