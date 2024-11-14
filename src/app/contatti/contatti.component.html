@@ -1,0 +1,14 @@
+<h2>Lista Contatti</h2>
+
+<div *ngIf="id ; then notList else list"></div>
+<ng-template  #list>
+    <div *ngFor="let user of users">
+        <p>{{user.nome}} {{user.cognome}}</p>
+    </div>
+</ng-template>
+<ng-template #notList>
+    <div #notUsers>
+        <p>{{user.nome}} {{user.cognome}}</p>
+    </div>
+</ng-template>
+

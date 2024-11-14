@@ -17,6 +17,10 @@ export class ServizioProvaService {
         return this.utenti
     }
 
+    getOneUser(index : number){
+        return this.utenti[index]
+    }
+
 }
 
 //Per identificare un servizio basta osservare il decoratore @Injectable

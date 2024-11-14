@@ -1,4 +1,4 @@
-import { ElementRef, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
@@ -20,7 +20,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
 
-import { NgModel } from '@angular/forms';
 import { MappingComponent } from './mapping/mapping.component';
 import { SwitchComponent } from './switch/switch.component';
 import { FatherComponent } from './father/father.component';
@@ -32,6 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { RoutingTestComponent } from './routing-test/routing-test.component';
+import { ContattiComponent } from './contatti/contatti.component';
+import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -47,7 +48,9 @@ import { RoutingTestComponent } from './routing-test/routing-test.component';
         CustomDirectiveComponent,
         HomeComponent,
         AboutComponent,
-        RoutingTestComponent
+        RoutingTestComponent,
+        ContattiComponent,
+        SingoloContattoComponent
     ],
     imports: [
         RouterOutlet,

@@ -101,7 +101,7 @@ isDisabled = false || immagine1 = 'http//ecc'
 - event binding
 
 Riferito agli eventi in ascolto
-per poter collegare un metodo del nostro componente classe a un elemento HTML dovremo utilizzare le () specificando il tipo di evento e poi associarlo al metodo che dichiareremo nel componente
+per poter collegare un metodo del nostro componente classe a un elemento HTML dovremo utilizzare le `()` specificando il tipo di evento e poi associarlo al metodo che dichiareremo nel componente
 
 ```
 esempio: <btn (click)='onClick()'> aggiungendo il parametro 'this' alla funzione possiamo accedere all'intero componente
@@ -310,7 +310,7 @@ Questo è un modo per poter mandare dati in modo inverso
 
 Si tratta di variabili di riferimento per poter accedere ai nostri elementi HTML, utile nei form.
 
-Viene utilizzato un decoratore ViewChild() nel nostro componente che sarà collegato alla variabile di riferimento
+Viene utilizzato un decoratore `ViewChild()` nel nostro componente che sarà collegato alla variabile di riferimento
 
 
 ```
@@ -354,8 +354,7 @@ in questo esempio viene modificato direttamente il background dell'elemento ed i
     <p appHighlight>Hello World<p/>
 ```
 
-le direttive possono inoltre ricevere dati da altri componenti, e sono disponibili in tutti i nostri file e
-vengono salvate in una cartella separata dai nostri componenti.
+le direttive possono inoltre ricevere dati da altri componenti, e sono disponibili in tutti i nostri file e vengono salvate in una cartella separata dai nostri componenti.
 
 Più dettagli e spiegazioni nel componente custom-directive.ts
 
@@ -419,3 +418,29 @@ const routes: Routes = [
 Per poter poi mostrare effettivamente il componente dovremo utilizzare il tag `<router-outlet>` che si occuperà di mostrare il componente collegato al routing
 
 Per poter navigare verso quel componente abbiamo a disposizione un attributo chiamato `routerLink="/"` specificando il path
+
+# ROUTER PARAMS 
+
+E' possibile accedere al parametro di una route inserendo in primis il parametro nel path
+
+```
+const routes : [
+    { path : 'contatti' , component : ContattiComponent } , 
+    { path : 'contatti/:id' , component : ContattiComponent }
+]
+```
+
+Per poter accedere al parametro `:id` nel nostro componente dobbiamo dichiararlo nel constructor
+
+```
+constructor(private route: ActivateRoute){}
+```
+
+la nostra variabile route adesso acquisisce l'obj del parametro del path.
+
+per poter accedere al valore in se utilizziamo:
+
+```
+id = this.route.snapshot.paramMap.get('id')
+```
+
