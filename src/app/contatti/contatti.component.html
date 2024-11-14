@@ -1,6 +1,6 @@
 <h2>Lista Contatti</h2>
 
-<div *ngIf="id ; then notList else list"></div>
+<!-- <div *ngIf="id ; then notList else list"></div>
 <ng-template  #list>
     <div *ngFor="let user of users , index as i">
         <a routerLink="/contatti/{{i}}"><p>{{user.nome}} {{user.cognome}}</p></a>
@@ -9,6 +9,15 @@
 <ng-template #notList>
     <div #notUsers>
         <p>Profilo di: {{user.nome}} {{user.cognome}}</p>
+        <app-singolo-contatto [user]="user"></app-singolo-contatto>
     </div>
-</ng-template>
+</ng-template> -->
+<div class="container">
+    <div *ngFor="let user of users , index as i" class="listContainer">
+        <a routerLink="/contatti/{{i}}"><p>{{user.nome}} {{user.cognome}}</p></a>   
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
 

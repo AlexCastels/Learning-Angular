@@ -444,3 +444,36 @@ per poter accedere al valore in se utilizziamo:
 id = this.route.snapshot.paramMap.get('id')
 ```
 
+# CHILDREN ROUTE
+
+In angular è possibile andare a definire dei figli per le routes con la proprietà `children : []`
+
+```
+const routes : [
+    { path : 'contatti' , component : ContattiComponent , children : [
+        {path : ':id , component : SingoloContattoComponent'}
+    ]}
+]
+```
+
+il risultato è lo stesso di come scrivere nella maniera precedente, solamente che adesso per poter mostrare il componente singolo avremo bisogno di un `<router-outlet>` così facendo avremo più libertà di gestire il componente 
+
+C'è un problema nel recupero del param da una route, nel momento in cui viene utilizzato per mostrare componenti in modo dinamico, quando viene utilizzato `.snapshot.` viene recuperato un ''istantanea'' del parametro, come se fosse uno screenshot, che avviene solamente la prima volta, per poter risolvere questo problema nel figlio il parametro dovrà essere acquisito in maniera diversa
+
+```
+id : number
+user : any
+
+this.route.paramMap.subscribe((params : ParamMap) => {
+    this.id = Number(params.get('id'))
+    this.user = getOneUser(this.id)
+    {...}
+})
+```
+
+Con `subscribe` vengono ascoltati tutti i cambiamenti della route da un compomente route children
+il subscribe tiene traccia del cambiamento del path e dei suoi parametri, al suo interno devono essere
+specificati i cambiamenti e le funzioni che terranno traccia di questi cambiamenti, permettendo di avere
+a video dati sempre aggiornati
+
+Questo perchè il passaggio dei dati viene in modo asincrono
