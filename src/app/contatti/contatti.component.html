@@ -2,13 +2,13 @@
 
 <div *ngIf="id ; then notList else list"></div>
 <ng-template  #list>
-    <div *ngFor="let user of users">
-        <p>{{user.nome}} {{user.cognome}}</p>
+    <div *ngFor="let user of users , index as i">
+        <a routerLink="/contatti/{{i}}"><p>{{user.nome}} {{user.cognome}}</p></a>
     </div>
 </ng-template>
 <ng-template #notList>
     <div #notUsers>
-        <p>{{user.nome}} {{user.cognome}}</p>
+        <p>Profilo di: {{user.nome}} {{user.cognome}}</p>
     </div>
 </ng-template>
 
