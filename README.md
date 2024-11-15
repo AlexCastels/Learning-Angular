@@ -481,3 +481,65 @@ specificati i cambiamenti e le funzioni che terranno traccia di questi cambiamen
 a video dati sempre aggiornati
 
 Questo perchè il passaggio dei dati viene in modo asincrono
+
+# REDIRECT
+
+E' un parametro da potr specificare nell'obj delle routes
+
+`redirectTo: '/path'` permette di reindirizzare verso un path specifico
+
+`pathMatch: 'full/prefix'` permette di avviare un controllo sull'intero path o prefisso
+
+# ERROR HANDLING
+
+Per poter gestire errori nei path basta inserire alla fine della lista delle nostre rotte un path='**'
+
+In questa maniera quando viene navigato un path non specificato si verrà reindirizzati al componente NotFound
+
+```
+const routes : [
+    { path : 'contatti' , component : ContattiComponent } , 
+    { path : 'about' , component : AbountComponent } ,
+    { path : '**' , component : NotFoundComponent}
+]
+```
+
+# NAVIGATE
+
+In angular è possibile concedere la navigazione attraverso componente in due modi attraverso ActivatedRoute e Router
+
+- navigate() 
+- navigateByUrl()
+
+```
+    constructor(private route : ActivatedRoute , private router : Router) {}
+
+    handleNavigate(){
+        this.router.navigate(['/path'])
+    }
+```
+
+Ed è anche possibile passare dei parametri attraverso un obj `queryParams` inserito in un obj di opzioni 
+
+```
+this.router.navigate(['/path/'], {
+   queryParams: { userId: this.userId, userName: this.userName }
+});
+```
+
+Questo obj sarà accessibile poi attraverso `queryParamMap` nel path di destinazione. Bisognerà sempre utilizzare la sottoscrizione per poter accedere ai parametri e poi utilizzare il metodo `get('dato')` per accedervi
+
+```
+data : any
+
+constructor(private route : ActivatedRoute , private router : Router) {}
+
+ngOnInit(): void {
+    this.data = this.route.queryParamMap.subscribe(params => {
+        this.data = params.get('data')
+        console.log(this.data);
+    })   
+}
+```
+
+navigateByUrl() invece cambia totalmente l'intero URL specificato al suo interno
