@@ -9,12 +9,13 @@ import { ServizioProvaService } from '../services/servizio-prova.service';
 
 export class ProvaComponent implements OnInit , AfterContentChecked , AfterContentInit , AfterViewChecked , AfterViewInit , DoCheck , OnDestroy {
     
-    cani = [{
-        nome : 'roger',
-        razza : 'golden',
-        desc : `The Golden is a Mexican breed of toy dog. It is named for the
-        Mexican state of Chihuahua and is among the smallest of all dog breeds. It is
-        usually kept as a companion animal or for showing.`    
+    cani = [
+        {
+            nome : 'roger',
+            razza : 'golden',
+            desc : `The Golden is a Mexican breed of toy dog. It is named for the
+            Mexican state of Chihuahua and is among the smallest of all dog breeds. It is
+            usually kept as a companion animal or for showing.`    
         } , 
         {
             nome : 'luky',

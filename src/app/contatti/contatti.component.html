@@ -13,8 +13,10 @@
     </div>
 </ng-template> -->
 <div class="container">
-    <div *ngFor="let user of users , index as i" class="listContainer">
-        <a routerLink="/contatti/{{i}}"><p>{{user.nome}} {{user.cognome}}</p></a>   
+    <div class="listContainer">
+        <div *ngFor="let user of users , index as i" >
+            <a routerLink="/contatti/{{i}}"><p>{{user.nome}} {{user.cognome}}</p></a>   
+        </div>
     </div>
     <div>
         <router-outlet></router-outlet>

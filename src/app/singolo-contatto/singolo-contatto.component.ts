@@ -7,17 +7,20 @@ import { ServizioProvaService } from '../services/servizio-prova.service';
     templateUrl: './singolo-contatto.component.html',
     styleUrl: './singolo-contatto.component.css',
 })
+
 export class SingoloContattoComponent implements OnInit {
     // @Input() user : any
     id : any;
     user : any;
-
+    
     constructor(private route : ActivatedRoute , private service : ServizioProvaService) {}
     
     ngOnInit(): void {
         this.route.paramMap.subscribe((params : ParamMap) => {
             this.id = params.get('id')
             this.user = this.service.getOneUser(Number(this.id))
+            console.log(this.id);
+            
         })
     }
 }

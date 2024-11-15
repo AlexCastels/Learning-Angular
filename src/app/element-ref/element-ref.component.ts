@@ -6,6 +6,7 @@ import { Component, ElementRef, ViewChild} from '@angular/core';
     styleUrl: './element-ref.component.css',
 })
 export class ElementRefComponent {
+    
     @ViewChild('riferimento') inputRef !: ElementRef<HTMLInputElement>
     
     value : string = ''

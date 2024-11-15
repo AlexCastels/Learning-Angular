@@ -444,6 +444,10 @@ per poter accedere al valore in se utilizziamo:
 id = this.route.snapshot.paramMap.get('id')
 ```
 
+Accedendo in questa maniera al parametro il valore sarà statico, questo perchè viene fatto uno `snapshot`
+
+Se si vuole tenere traccia in modo costante del cambiamento del parametro bisognerà utilizzare il `subscribe`
+
 # CHILDREN ROUTE
 
 In angular è possibile andare a definire dei figli per le routes con la proprietà `children : []`
