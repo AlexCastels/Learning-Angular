@@ -1,22 +1,31 @@
 <h2>Driven Form</h2>
-<form class="formContainer" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput type="text" name="name" ngModel>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput type="email" name="email" ngModel required email>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Select Color</mat-label>
-        <mat-select name="color" ngModel>
-            <mat-option value="red">Red</mat-option>
-            <mat-option value="blue">Blue</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <button type="submit" [disabled]="!form.valid">Submit</button>
-</form>
+
+<div class="container">
+    <form class="formContainer" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" name="name" ngModel>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" ngModel required email>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Color</mat-label>
+            <mat-select name="color" ngModel>
+                <mat-option value="red">Red</mat-option>
+                <mat-option value="blue">Blue</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+    <div *ngIf="data">
+        <p>I miei dati :</p>
+        <p>Name: {{data.name}}</p>
+        <p>email: {{data.email}}</p>
+        <p>Color: {{data.color}}</p>
+    </div>
+</div>
 <!--TEMPLATE DRIVEN-->
 <!--
     Abbiamo la possibilità di poter accedere ai nostri form senza l'utilizzo del ts

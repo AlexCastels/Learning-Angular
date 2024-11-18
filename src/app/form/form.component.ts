@@ -9,12 +9,14 @@ import {NgForm} from "@angular/forms";
 
 export class FormComponent implements OnInit{
     // @ViewChild('form') formObj : NgForm
+    data : any = ''
     constructor() { }
     ngOnInit(): void {0
 
     }
     onSubmit(form : NgForm) : any{
-        console.log(form)
+        console.log(form.value)
+        this.data = form.value
     }
 }
 
