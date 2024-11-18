@@ -665,8 +665,12 @@ this.form = new FormGroup({
 })
 ```
 
+Con `this.form.get('name'))` possiamo accedere direttamente all'obj singolo collegato al FormControl
+
 Collegamento HTML : 
 
 `<form class="formContainer" [formGroup]="form">`
 
 `<input type="email" name="email" formControlName="email">`
+
+
