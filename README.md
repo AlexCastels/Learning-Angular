@@ -624,3 +624,49 @@ Angular inoltre mette a disposizione degli attributi per effettuare controlli ag
 ad esempio `<input type='email' required email>` email è un controllo di validazione aggiuntivo fornito da angular
 
 Nell'obj i dati degli input collegati sono contenuti in .value 
+
+# REACTIVE FORM  (GESTIONE LATO TS)
+
+Bisogna importare `ReactiveFormModule`
+
+E' la possibilità di gestire i form lato class ts, per poter fare questo utilizzeremo il `FormGroup` che darà la possibilità
+di poter creare un obj collegato al form contenendo i `FormControl`, che vengono collegati direttamente agli input
+
+```
+form : FormGroup
+
+ngOnInit(): void {
+    this.form = new FormGroup({
+         name : new FormControl('Alex'),
+         email : new FormControl(),
+         color : new FormControl(),
+    })
+}
+```
+
+Per poter controllare un form tramite ts dovremo utilizzare il modulo esteso di `Reactive Forms`
+Questo contiene `FormGroup` e `FormControl` che si occupano di tenere traccia dei cambiamenti del modulo form puntato
+Nello specifico FormGroup è un contenitore di FormControl, questi controllano nello specifico tutti i
+cambiamenti degli input a cui sono collegati , vengono collegati tramite l'attributo `formControlName=""`
+
+`<input type="text" formControlName"firstName"`
+
+Il FormControl viene associato ad una proprietà nell'obj FormGroup con stesso nome dell'input e accetta diversi parametri
+il primo rappresenta il valore di default che potremmo inserire, vuoto per null
+il secondo rappresenta le opzioni di validazione dell'input, specificato in un array se più di una.
+
+`Validators` è un obj che contiene i vari metodi di validazione
+
+```
+this.form = new FormGroup({
+    name : new FormControl('Alex' , Validators.required),
+    email : new FormControl(null , [Validators.required , Validators.email , Validators.maxLength(20)]),
+    color : new FormControl(),
+})
+```
+
+Collegamento HTML : 
+
+`<form class="formContainer" [formGroup]="form">`
+
+`<input type="email" name="email" formControlName="email">`

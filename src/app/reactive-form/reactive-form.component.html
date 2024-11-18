@@ -1,0 +1,42 @@
+<h2>Reactive Form</h2>
+<div class="container" >
+    <form class="formContainer" [formGroup]="form" (submit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" name="name" formControlName="name">
+        </mat-form-field>
+        <p *ngIf="!form.get('name')?.valid" style="color: red">Attenzione inserire un nome</p>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Color</mat-label>
+            <mat-select name="color" formControlName="color">
+                <mat-option value="red">Red</mat-option>
+                <mat-option value="blue">Blue</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+    <div *ngIf="data">
+        <p>I miei dati :</p>
+        <p>Name: {{data.name}}</p>
+        <p>email: {{data.email}}</p>
+        <p>Color: {{data.color}}</p>
+    </div>
+</div>
+
+<!--REACTIVE FORM-->
+<!--
+    Per poter collegare il form utilizzeremo il property binding per collegalo alla nostra variabile
+    inizializzata a FormGroup
+
+    Per collegare i nostri input utilizziamo il formControlName=""
+
+    Così facendo tutti
+
+
+
+
+-->

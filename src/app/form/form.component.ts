@@ -15,8 +15,8 @@ export class FormComponent implements OnInit{
 
     }
     onSubmit(form : NgForm) : any{
-        console.log(form.value)
         this.data = form.value
+        console.log('I dati del mio DrivenForm : ' + JSON.stringify(this.data))
     }
 }
 

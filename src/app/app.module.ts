@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProvaComponent } from './prova/prova.component';
@@ -35,6 +35,7 @@ import { RoutingTestComponent } from './routing-test/routing-test.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.component';
 import {FormComponent} from "./form/form.component";
+import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 @NgModule({
     declarations: [
         AppComponent,
@@ -53,7 +54,8 @@ import {FormComponent} from "./form/form.component";
         RoutingTestComponent,
         ContattiComponent,
         SingoloContattoComponent,
-        FormComponent
+        FormComponent,
+        ReactiveFormComponent,
     ],
     imports: [
         RouterOutlet,
@@ -74,6 +76,7 @@ import {FormComponent} from "./form/form.component";
         MatSelectModule,
         MatFormFieldModule,
         AppRoutingModule,
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
