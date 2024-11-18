@@ -622,3 +622,5 @@ anche queste possono essere utilizzate per effettuare controlli extra sull'eleme
 Angular inoltre mette a disposizione degli attributi per effettuare controlli aggiuntivi negli input
 
 ad esempio `<input type='email' required email>` email è un controllo di validazione aggiuntivo fornito da angular
+
+Nell'obj i dati degli input collegati sono contenuti in .value 
