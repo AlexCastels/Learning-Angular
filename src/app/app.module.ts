@@ -18,9 +18,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
 import { MappingComponent } from './mapping/mapping.component';
 import { SwitchComponent } from './switch/switch.component';
 import { FatherComponent } from './father/father.component';
@@ -34,8 +35,10 @@ import { AboutComponent } from './about/about.component';
 import { RoutingTestComponent } from './routing-test/routing-test.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.component';
-import {FormComponent} from "./form/form.component";
-import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
+import { FormComponent } from "./form/form.component";
+import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
+import { HandleDataComponent } from "./handle-data/handle-data.component";
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
     declarations: [
         AppComponent,
@@ -56,6 +59,7 @@ import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
         SingoloContattoComponent,
         FormComponent,
         ReactiveFormComponent,
+        HandleDataComponent,
     ],
     imports: [
         RouterOutlet,
@@ -77,6 +81,7 @@ import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
         MatFormFieldModule,
         AppRoutingModule,
         ReactiveFormsModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

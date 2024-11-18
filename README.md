@@ -593,9 +593,9 @@ ngOnDestroy(){
 }
 ```
 
-# DRIVEN FROM (GESTIONE LATO HTML)
+# TEMPLATE DRIVEN FROM (GESTIONE LATO HTML)
 
-E' la possibilità di poter collegare e tenere traccia di uno stato del form e del valore dei suoi input
+È la possibilità di poter collegare e tenere traccia di uno stato del form e del valore dei suoi input
 
 Utilizzeremo variabili template e un modello
 
@@ -673,4 +673,9 @@ Collegamento HTML :
 
 `<input type="email" name="email" formControlName="email">`
 
+# MODULO HTTP
+
+Utilizziamo un modulo per gestire le chiamate di rete `HttpclientModule`
+
+Questo metterà a disposizione tutti i metodi per poter effettuare richieste lato client
 
