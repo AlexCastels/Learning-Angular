@@ -1,0 +1,37 @@
+<h2>Driven Form</h2>
+<form class="formContainer" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" ngModel>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" ngModel required email>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Select Color</mat-label>
+        <mat-select name="color" ngModel>
+            <mat-option value="red">Red</mat-option>
+            <mat-option value="blue">Blue</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+<!--TEMPLATE DRIVEN-->
+<!--
+    Abbiamo la possibilità di poter accedere ai nostri form senza l'utilizzo del ts
+
+    questo è possibile grazie alla variabile template che inizializziamo a ngForm,
+    angular permette di poter creare un obj con tutte le informazioni sul form e relativi input
+    questo obj poi lo passiamo ad un evento submit per poter accedere lato ts ai dati
+
+    i vari input dovranno essere anch'essi collegati tramite ngModel ed un name assegnato
+
+    angular mette a disposizione degli attributi extra per gli elementi, ad esempio email per il controllo
+
+    avendo a disposizione questo obj e le sue diverse proprietà di controllo adesso possiamo rendere
+    il nostro button disattivato quando il form non è valido ad esempio
+
+    form.valid è una proprietà appartenente all'obj ngForm
+-->
+

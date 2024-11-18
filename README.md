@@ -306,7 +306,7 @@ riceviDati() sarà cos' accessibile al padre
 
 Questo è un modo per poter mandare dati in modo inverso
 
-# VARIABILE TEMPLATE (Riferimetno elementi HTML)
+# VARIABILE TEMPLATE / VIEWCHILD() (Riferimento elementi HTML)
 
 Si tratta di variabili di riferimento per poter accedere ai nostri elementi HTML, utile nei form.
 
@@ -592,3 +592,33 @@ ngOnDestroy(){
     this.sottoscrizione.unsubscribe()
 }
 ```
+
+# DRIVEN FROM (GESTIONE LATO HTML)
+
+E' la possibilità di poter collegare e tenere traccia di uno stato del form e del valore dei suoi input
+
+Utilizzeremo variabili template e un modello
+
+```
+<form #mioForm="ngForm" (onSubmit)="onSubmit(mioForm)">
+```
+
+La variabile conterrà un obj con tutte le informazioni dei vari input che dovranno anch'essi essere collegati
+tramite `ngModel` e un name
+
+```
+<input type="text" name="firstName" ngModel>
+```
+
+E' possibile accedere ai dati anche attraverso `ViewChild()` associando l'interfaccia NgForm
+
+```
+ViewChild('mioForm') mioForm : NgForm
+```
+
+Sono presenti nei vari elementi anche delle classi che stanno a indicare le validazioni come ng-dirty ng-valid- ng-touched ecc
+anche queste possono essere utilizzate per effettuare controlli extra sull'elemento o lo stato del form
+
+Angular inoltre mette a disposizione degli attributi per effettuare controlli aggiuntivi negli input
+
+ad esempio `<input type='email' required email>` email è un controllo di validazione aggiuntivo fornito da angular
