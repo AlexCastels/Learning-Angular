@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: './switch.component.html',
     styleUrl: './switch.component.css',
 })
+
 export class SwitchComponent {
     stringa = 'Alex'
     numero = 2

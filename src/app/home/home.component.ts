@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
 })
+
 export class HomeComponent {
     data : any
 

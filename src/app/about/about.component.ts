@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     templateUrl: './about.component.html',
     styleUrl: './about.component.css',
 })
+
 export class AboutComponent implements OnInit{
     data :  any
 

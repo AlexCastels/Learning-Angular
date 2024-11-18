@@ -419,6 +419,7 @@ Per poter poi mostrare effettivamente il componente dovremo utilizzare il tag `<
 
 Per poter navigare verso quel componente abbiamo a disposizione un attributo chiamato `routerLink="/"` specificando il path
 
+
 # ROUTER PARAMS 
 
 E' possibile accedere al parametro di una route inserendo in primis il parametro nel path
@@ -543,3 +544,44 @@ ngOnInit(): void {
 ```
 
 navigateByUrl() invece cambia totalmente l'intero URL specificato al suo interno
+
+# LAZY LOADING
+
+Il lazy loading in react permette di limitare la quantità di componenti che caricano nell'app
+
+Questo per ottimizzare le risorse utilizzate e per velocizzare il caricamento dell'app, permettendo il caricamento solo della view iniziale, e durante la navigazione dell'applicazione il caricamento di tutti gli altri componenti e parti aggiuntive
+
+Nella route viene specificato il relativo path del modulo, e posto come argomento del then()
+
+Automaticamente loadChildren si occuperà del lazy loading
+
+```
+const routes: Routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+  }
+];
+```
+
+# PROTECTED ROUTE
+
+Angular permette la protezione delle route attraverso `guard`
+
+implementando CanActivate e authService angular tiene traccia degli snapshot delle route e ci permette di implementare controlli
+
+CanActivate è anche una proprieta da inserire nelle routes che permette la navigazione solo se il guard al suo interno ritorna true
+
+```
+routes : [
+        { path:'contatti', component: ContattiComponent , canActivate:[AuthGuard] , canActivateChild:[AuthGuard] children : [
+        {path : ':id' , component: SingoloContattoComponent}
+    ]}
+]
+```
+
+Per poter definire questi elementi prima dovremo creare sia il guard che un servizio
+
+`ng g s auth/auth` `ng g guard auth/guard`
+
+SPIEGAZIONE DEPRECATA CERCARE INFO
