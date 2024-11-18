@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProvaComponent } from './prova/prova.component';
@@ -10,8 +10,7 @@ import { BtnComponent } from './btn/btn.component';
 import { InputComponent } from './input/input.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -19,6 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 import { MappingComponent } from './mapping/mapping.component';
 import { SwitchComponent } from './switch/switch.component';
@@ -33,6 +35,10 @@ import { AboutComponent } from './about/about.component';
 import { RoutingTestComponent } from './routing-test/routing-test.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.component';
+import { FormComponent } from "./form/form.component";
+import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
+import { HandleDataComponent } from "./handle-data/handle-data.component";
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
     declarations: [
         AppComponent,
@@ -50,7 +56,10 @@ import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.co
         AboutComponent,
         RoutingTestComponent,
         ContattiComponent,
-        SingoloContattoComponent
+        SingoloContattoComponent,
+        FormComponent,
+        ReactiveFormComponent,
+        HandleDataComponent,
     ],
     imports: [
         RouterOutlet,
@@ -67,7 +76,12 @@ import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.co
         MatCardModule,
         MatProgressBarModule,
         MatChipsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatFormFieldModule,
         AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

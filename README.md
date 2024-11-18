@@ -306,7 +306,7 @@ riceviDati() sarà cos' accessibile al padre
 
 Questo è un modo per poter mandare dati in modo inverso
 
-# VARIABILE TEMPLATE (Riferimetno elementi HTML)
+# VARIABILE TEMPLATE / VIEWCHILD() (Riferimento elementi HTML)
 
 Si tratta di variabili di riferimento per poter accedere ai nostri elementi HTML, utile nei form.
 
@@ -585,3 +585,139 @@ Per poter definire questi elementi prima dovremo creare sia il guard che un serv
 `ng g s auth/auth` `ng g guard auth/guard`
 
 SPIEGAZIONE DEPRECATA CERCARE INFO
+
+# OBSERVABLE
+
+Con observable intendiamo il fatto di potersi sottoscrivere per tenere traccia dei cambiamenti di dati nel tempo
+
+Per fare questo utilizziamo `.subscribe((dato) => log.(dato))` che permette di ascoltare i cambiamenti e di ritornare
+il valore e poterlo utilizzare e leggere. (come visto nel routing)
+
+Gli Observable sono forniti da rxjs, una libreria implementata in Angular per poterli gestire
+
+Interval è una funzione di rxjs che ritorna un Observable di tipo Number, e accetta come argomento il tempo in millisecondi per poter ritornare il dato numerico
+accedere direttamente ad interval() ritorna un obj di tipo observable che non contiene il dato direttamente, dobbiamo sottoscriverci per potervi accedere
+
+```
+sottoscrizione : any = ''
+
+nhOnInit(){
+    this.sottoscrizione = interval(1000).subscribe((number)=>console.log(number))
+}
+```
+
+Ma è anche possibile poter creare i proprio Observable personalizzati
+
+Questa funzione è la stessa di interval, l'observer è l'osservatore in se che tiene traccia del cambiamento dei dati
+
+```
+new Observable(observer => {
+    let count = 0
+    setInterval(()=>{
+        observer.next(count);
+        count ++
+    } , 1000) ;     
+}).subscribe((numero) => console.log(numero))
+
+```
+
+E' possibile anche utilizzare unsubscribe anche perchè un osservatore una volta avviato rimane sempre attivo.
+
+Dunque utilizziamo `unsubscribe` in ngOnDestroy() per poter terminare la sottoscrizione al dato
+
+In alcuni casi come nel routing l'unsubscribe avviene in maniera automatica
+
+salvando l'observable in una variabile poi sarà possibile attivare unsubscribe quando il componente sarà distrutto
+
+```
+ngOnDestroy(){
+    this.sottoscrizione.unsubscribe()
+}
+```
+
+# TEMPLATE DRIVEN FROM (GESTIONE LATO HTML)
+
+È la possibilità di poter collegare e tenere traccia di uno stato del form e del valore dei suoi input
+
+Utilizzeremo variabili template e un modello
+
+```
+<form #mioForm="ngForm" (onSubmit)="onSubmit(mioForm)">
+```
+
+La variabile conterrà un obj con tutte le informazioni dei vari input che dovranno anch'essi essere collegati
+tramite `ngModel` e un name
+
+```
+<input type="text" name="firstName" ngModel>
+```
+
+E' possibile accedere ai dati anche attraverso `ViewChild()` associando l'interfaccia NgForm
+
+```
+ViewChild('mioForm') mioForm : NgForm
+```
+
+Sono presenti nei vari elementi anche delle classi che stanno a indicare le validazioni come ng-dirty ng-valid- ng-touched ecc
+anche queste possono essere utilizzate per effettuare controlli extra sull'elemento o lo stato del form
+
+Angular inoltre mette a disposizione degli attributi per effettuare controlli aggiuntivi negli input
+
+ad esempio `<input type='email' required email>` email è un controllo di validazione aggiuntivo fornito da angular
+
+Nell'obj i dati degli input collegati sono contenuti in .value 
+
+# REACTIVE FORM  (GESTIONE LATO TS)
+
+Bisogna importare `ReactiveFormModule`
+
+E' la possibilità di gestire i form lato class ts, per poter fare questo utilizzeremo il `FormGroup` che darà la possibilità
+di poter creare un obj collegato al form contenendo i `FormControl`, che vengono collegati direttamente agli input
+
+```
+form : FormGroup
+
+ngOnInit(): void {
+    this.form = new FormGroup({
+         name : new FormControl('Alex'),
+         email : new FormControl(),
+         color : new FormControl(),
+    })
+}
+```
+
+Per poter controllare un form tramite ts dovremo utilizzare il modulo esteso di `Reactive Forms`
+Questo contiene `FormGroup` e `FormControl` che si occupano di tenere traccia dei cambiamenti del modulo form puntato
+Nello specifico FormGroup è un contenitore di FormControl, questi controllano nello specifico tutti i
+cambiamenti degli input a cui sono collegati , vengono collegati tramite l'attributo `formControlName=""`
+
+`<input type="text" formControlName"firstName"`
+
+Il FormControl viene associato ad una proprietà nell'obj FormGroup con stesso nome dell'input e accetta diversi parametri
+il primo rappresenta il valore di default che potremmo inserire, vuoto per null
+il secondo rappresenta le opzioni di validazione dell'input, specificato in un array se più di una.
+
+`Validators` è un obj che contiene i vari metodi di validazione
+
+```
+this.form = new FormGroup({
+    name : new FormControl('Alex' , Validators.required),
+    email : new FormControl(null , [Validators.required , Validators.email , Validators.maxLength(20)]),
+    color : new FormControl(),
+})
+```
+
+Con `this.form.get('name'))` possiamo accedere direttamente all'obj singolo collegato al FormControl
+
+Collegamento HTML : 
+
+`<form class="formContainer" [formGroup]="form">`
+
+`<input type="email" name="email" formControlName="email">`
+
+# MODULO HTTP
+
+Utilizziamo un modulo per gestire le chiamate di rete `HttpclientModule`
+
+Questo metterà a disposizione tutti i metodi per poter effettuare richieste lato client
+

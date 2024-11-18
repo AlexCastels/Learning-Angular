@@ -1,5 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
-import { ServizioProvaService } from '../services/servizio-prova.service';
+import { ServizioProvaService } from '../servizi/services/servizio-prova.service';
 
 @Component({
     selector: 'app-prova',
@@ -8,21 +8,21 @@ import { ServizioProvaService } from '../services/servizio-prova.service';
 })
 
 export class ProvaComponent implements OnInit , AfterContentChecked , AfterContentInit , AfterViewChecked , AfterViewInit , DoCheck , OnDestroy {
-    
+
     cani = [
         {
             nome : 'roger',
             razza : 'golden',
             desc : `The Golden is a Mexican breed of toy dog. It is named for the
             Mexican state of Chihuahua and is among the smallest of all dog breeds. It is
-            usually kept as a companion animal or for showing.`    
-        } , 
+            usually kept as a companion animal or for showing.`
+        } ,
         {
             nome : 'luky',
             razza : 'retriver',
             desc : `The Retriver is a Mexican breed of toy dog. It is named for the
             Mexican state of Chihuahua and is among the smallest of all dog breeds. It is
-            usually kept as a companion animal or for showing.`    
+            usually kept as a companion animal or for showing.`
         } ,
     ]
 
@@ -35,21 +35,21 @@ export class ProvaComponent implements OnInit , AfterContentChecked , AfterConte
         console.log(this.serviceUser.getUsers());
     }
     ngAfterContentChecked(): void {
-        // console.log('ngAfterContentChecked'); 
+        // console.log('ngAfterContentChecked');
     }
     ngAfterContentInit(): void {
-        // console.log('ngAfterContentInit'); 
+        // console.log('ngAfterContentInit');
     }
     ngAfterViewChecked(): void {
-        // console.log('ngAfterViewChecked'); 
+        // console.log('ngAfterViewChecked');
     }
     ngAfterViewInit(): void {
-        // console.log('ngAfterViewInit'); 
+        // console.log('ngAfterViewInit');
     }
     ngDoCheck(): void {
-        // console.log('ngDoCheck'); 
+        // console.log('ngDoCheck');
     }
     ngOnDestroy(): void {
-        // console.log('ngOnDestroy'); 
+        // console.log('ngOnDestroy');
     }
 }
