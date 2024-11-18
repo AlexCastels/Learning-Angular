@@ -543,3 +543,52 @@ ngOnInit(): void {
 ```
 
 navigateByUrl() invece cambia totalmente l'intero URL specificato al suo interno
+
+# OBSERVABLE
+
+Con observable intendiamo il fatto di potersi sottoscrivere per tenere traccia dei cambiamenti di dati nel tempo
+
+Per fare questo utilizziamo `.subscribe((dato) => log.(dato))` che permette di ascoltare i cambiamenti e di ritornare
+il valore e poterlo utilizzare e leggere. (come visto nel routing)
+
+Gli Observable sono forniti da rxjs, una libreria implementata in Angular per poterli gestire
+
+Interval è una funzione di rxjs che ritorna un Observable di tipo Number, e accetta come argomento il tempo in millisecondi per poter ritornare il dato numerico
+accedere direttamente ad interval() ritorna un obj di tipo observable che non contiene il dato direttamente, dobbiamo sottoscriverci per potervi accedere
+
+```
+sottoscrizione : any = ''
+
+nhOnInit(){
+    this.sottoscrizione = interval(1000).subscribe((number)=>console.log(number))
+}
+```
+
+Ma è anche possibile poter creare i proprio Observable personalizzati
+
+Questa funzione è la stessa di interval, l'observer è l'osservatore in se che tiene traccia del cambiamento dei dati
+
+```
+new Observable(observer => {
+    let count = 0
+    setInterval(()=>{
+        observer.next(count);
+        count ++
+    } , 1000) ;     
+}).subscribe((numero) => console.log(numero))
+
+```
+
+E' possibile anche utilizzare unsubscribe anche perchè un osservatore una volta avviato rimane sempre attivo.
+
+Dunque utilizziamo `unsubscribe` in ngOnDestroy() per poter terminare la sottoscrizione al dato
+
+In alcuni casi come nel routing l'unsubscribe avviene in maniera automatica
+
+salvando l'observable in una variabile poi sarà possibile attivare unsubscribe quando il componente sarà distrutto
+
+```
+ngOnDestroy(){
+    this.sottoscrizione.unsubscribe()
+}
+```
