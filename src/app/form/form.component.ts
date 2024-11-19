@@ -11,7 +11,7 @@ export class FormComponent implements OnInit{
     // @ViewChild('form') formObj : NgForm
     data : any = ''
     constructor() { }
-    ngOnInit(): void {0
+    ngOnInit(): void {
 
     }
     onSubmit(form : NgForm) : any{

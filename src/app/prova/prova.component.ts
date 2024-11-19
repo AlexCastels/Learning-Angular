@@ -32,7 +32,7 @@ export class ProvaComponent implements OnInit , AfterContentChecked , AfterConte
 
     constructor(public serviceUser : ServizioProvaService) {}
     ngOnInit(): void {
-        console.log(this.serviceUser.getUsers());
+        //console.log(this.serviceUser.getUsers());
     }
     ngAfterContentChecked(): void {
         // console.log('ngAfterContentChecked');

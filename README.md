@@ -709,6 +709,8 @@ this.form = new FormGroup({
 
 Con `this.form.get('name'))` possiamo accedere direttamente all'obj singolo collegato al FormControl
 
+Con `this.form.reset()` possiamo resettare i campi del form
+
 Collegamento HTML : 
 
 `<form class="formContainer" [formGroup]="form">`
@@ -784,6 +786,11 @@ Esempio di chiamata POST :
         })
     }
 ```
+
+Differenza tra put e patch:
+
+- `put` : Aggiunge elementi o sostituisce un elemento, si aspetta l'intera entità da sostituire
+- `patch` : Modifica l'attuale record , anche solo in parte 
 
 # MAPPING DATA
 

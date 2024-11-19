@@ -24,6 +24,7 @@ export class ReactiveFormComponent {
             color : this.form.value.color
         }
         console.log('I dati del mio ReactiveForm : ' + JSON.stringify(this.form.value))
+        this.form.reset()
         // console.log(this.form.get('name')) //accediamo direttamente all'obj dell'input specificato
     }
 }
