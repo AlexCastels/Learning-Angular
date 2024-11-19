@@ -32,6 +32,121 @@ cioè .html .css .spec.ts e .ts
 i componenti in angular vengono chiamati nome.component.html ecc e divisi in cartelle
 - `ng generate component` -> `ng g c nomeCopm`
 
+# CLASS COMPONENT (TYPESCRIPT)
+
+Le classi in ts permettono di definire la struttura di un obj con proprietà (dati) e metodi (funzioni)
+
+Typescript permette di aggiungere altre funzionalità come interfacce e decoratori
+
+```
+//struttura dell'obj
+class Persona {
+    // Proprietà
+    nome: string;
+    eta: number;
+
+    // Costruttore
+    constructor(nome: string, eta: number) {
+        this.nome = nome;
+        this.eta = eta;
+    }
+
+    // Metodo
+    saluta(): string {
+        return `Ciao, mi chiamo ${this.nome} e ho ${this.eta} anni.`;
+    }
+}
+
+// Creazione di un'istanza dell'obj
+const persona1 = new Persona('Marco', 25);
+const persona2 = new Persona('Alex' , 28)
+console.log(persona1.saluta());
+```
+
+### Proprietà
+
+- Rappresentano i dati
+- Devono essere dichiarate con un tipo
+- Possono essere opzionali con `?`
+- Possono contenere valori di default
+
+### Costruttore
+
+- Contiene gli argomenti che accetta la classe per poter istanziare l'obj
+- Funzione speciale che inizializza la classe
+- Inizializza le proprietà
+- Si avvia come prima cosa nel momento in cui la classe viene generata
+
+### Metodi
+
+- Funzioni personalizzate appartenente all'obj
+
+### Modificatori di accesso
+
+- Specificano la visibilità di proprietà e metodi
+  - `public` : Accessibile ovunque (default)
+  - `private` : Accessibile solamente all'interno della classe
+  - `protected` : Accessibile all'interno della classe e delle sue sottoclassi (estese)
+
+### Ereditarietà
+
+- Una classe può essere estesa a un altra tramite `extends`
+- Utilizziamo la funzione `super()` per recuperare le proprietà della classe padre
+
+```
+class Studente extends Persona {
+    corso: string;
+
+    constructor(nome: string, eta: number, corso: string) {
+        super(nome, eta); // Chiama il costruttore della classe base
+        this.corso = corso;
+    }
+
+    saluta(): string {
+        return `${super.saluta()} Sto studiando ${this.corso}.`;
+    }
+}
+```
+
+### Getter & Setter
+
+- Permettono di accedere alle proprietà come se fossero variabili e di modificarle tramite logica
+- Getter: Recupera proprietà, utilizziamo la parola chiave `get` + nomeVariabile(){}
+- Setter: Setta e modifica proprietà, utilizziamo la parola chiave `set` + nomeVariabile(valore : tipo){}
+- Le variabili generalmente vengono denominate con l'underscore `_nomeVariabile`
+- Per poter accedere a questi metodi utilizziamo la dot notation
+
+```
+class Persona {
+    private _eta: number;
+
+    constructor(eta: number) {
+        this._eta = eta;
+    }
+
+    get eta(): number {
+        return this._eta;
+    }
+
+    set eta(valore: number) {
+        if (valore > 0) {
+            this._eta = valore;
+        } else {
+            console.error('L\'età deve essere positiva!');
+        }
+    }
+}
+
+const persona = new Persona(25);
+console.log(persona.eta); // Usa il getter
+persona.eta = 30;        // Usa il setter
+
+```
+
+### Implementazione Interfacce
+
+- Una classe può implementare una o più interfacce 'sottoscrivendosi a un contratto' , garantendo che venga soddisfatto
+
 # CICLO DI VITA COMPONENTE
 
 <img src='./public/img/CicloComp.jpg' width=400>
