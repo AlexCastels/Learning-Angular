@@ -12,9 +12,9 @@ export class HandleDataComponent{
     url : string = ''
     data : any = ''
     message : any = ''
+    id : any = ''
     constructor(private dataService : DataService) {
         this.url = dataService.url
-        this.data = dataService.getData(this.url)
     }
 
     handlePost(){
@@ -38,6 +38,7 @@ export class HandleDataComponent{
                 this.message = 'Errore nella richiesta :('
             }
         })
+
     }
 
     handleGet(){
@@ -49,6 +50,22 @@ export class HandleDataComponent{
             } ,
             error: (err) => {
                 console.log('Errore nella chiamata GET: ' , err)
+            }
+        })
+    }
+
+    handleDelete(){
+        this.dataService.delete(this.url , this.id , {
+            method : 'DELETE'
+        }).subscribe({
+            next : (response) => {
+                this.data = ''
+                this.message = 'Richiesta DELETE effettuata con successo :)'
+                console.log(`Eliminato oggetto con id: ${this.id}`)
+            } ,
+            error : err => {
+                console.error(err.message)
+                this.message = 'Errore nella richiesta :('
             }
         })
     }

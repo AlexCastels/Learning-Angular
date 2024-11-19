@@ -9,10 +9,14 @@ export class DataService {
     url : string = 'https://jsonplaceholder.typicode.com/users'
     constructor(private http : HttpClient) { }
 
-    post(url : string , body : {}){
+    post(url : string , body : any){
         return this.http.post(url , body)
     }
     getData(url : string){
         return this.http.get(url)
+    }
+
+    delete(url : string , id : number, method : {}) {
+        return this.http.delete(`${url}/${id}` , method)
     }
 }

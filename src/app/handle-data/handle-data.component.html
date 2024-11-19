@@ -1,8 +1,11 @@
 <h2>HTTP Module</h2>
+<h5>L'URL di prova non fornisce modifiche effettive al DB ma solo la risposta</h5>
 <div class="container">
     <div class="btnContainer">
         <button (click)="handlePost()">Post Data</button>
         <button (click)="handleGet()">Get Data</button>
+        <button (click)="handleDelete()">Delete Data</button>
+        <input type="number" [(ngModel)]="id" max="99" min="1">
     </div>
     <div class="responseContainer">
         <div *ngIf="data ; else bloccoElse">

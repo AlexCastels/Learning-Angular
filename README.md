@@ -726,6 +726,8 @@ Questo metterà a disposizione tutti i metodi per poter effettuare richieste lat
 Generalmente tutte le chiamate di rete vengono settate e gestite in un service dedicato 
 
 ```
+//SERVIZIO
+
 export class DataService {
     url : string = 'https://jsonplaceholder.typicode.com/users'
     constructor(private http : HttpClient) { }
@@ -757,6 +759,8 @@ Dove accettano un arg nell'arrow func che rispecchiano i dati in entrata, dentro
 Esempio di chiamata POST : 
 
 ```
+//COMPONENTE
+
     handlePost(){
         this.dataService.post(this.url , {
             method: 'POST',
@@ -780,6 +784,30 @@ Esempio di chiamata POST :
         })
     }
 ```
+
+# MAPPING DATA
+
+Può capitare di ricevere dei dati in risposta che non sono iterabili per poter effettuare un ciclo *ngFor che si aspetta generalmente un array di obj
+
+Per poter evitare questo problema andiamo a modificare la visione dei dati in entrata
+
+`.map` è fornito da rxjs
+
+```
+    users : any = ''
+    
+    handleGet(){
+        this.dataService.getData(this.url).subscribe((data : any) => {
+            this.users = Object.keys(data).map((key) => { return data[key] })
+            console.log(this.users)
+        })
+    }
+```
+
+`Objecy.keys(data)` recupera le chiavi di un obj in un array, (in questo caso data)
+`.map((key) => { return data[key] })` mappiamo questo array per ottenere le chiavi e ritornare un array levando il primo elemento ID
+
+Esempio legato al ritorno di dati di FireBase dove l'array non è pulito ma ritorna prima un Id seriale e poi l'obj
 
 # RXJS - Reactive Extensions Library for JavaScript
 

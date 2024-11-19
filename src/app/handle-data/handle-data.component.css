@@ -12,8 +12,13 @@
     gap: 30px;
 }
 
+.btnContainer input{
+    width: 35px;
+    align-self: center;
+}
+
 .btnContainer button{
     padding: 10px;
-    width: 200px;
+    width: 100px;
     cursor: pointer;
 }
