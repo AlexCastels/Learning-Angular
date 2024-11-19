@@ -4,11 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { SingoloContattoComponent } from './singolo-contatto/singolo-contatto.component';
+import {AuthGuard} from "./auth/auth.guard";
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'contatti', component: ContattiComponent , children : [
+    { path: 'contatti', component: ContattiComponent , canActivate : [AuthGuard] , canActivateChild : [AuthGuard] , children : [
         {path : ':id' , component: SingoloContattoComponent}
     ]},
     { path: '**', redirectTo: '' }, //Per gestire il path notFound

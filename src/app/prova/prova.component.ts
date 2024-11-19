@@ -19,8 +19,8 @@ export class ProvaComponent implements OnInit , AfterContentChecked , AfterConte
         } ,
         {
             nome : 'luky',
-            razza : 'retriver',
-            desc : `The Retriver is a Mexican breed of toy dog. It is named for the
+            razza : 'retriever',
+            desc : `The Retriever is a Mexican breed of toy dog. It is named for the
             Mexican state of Chihuahua and is among the smallest of all dog breeds. It is
             usually kept as a companion animal or for showing.`
         } ,

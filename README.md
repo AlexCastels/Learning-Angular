@@ -507,7 +507,7 @@ const routes : [
 
 # NAVIGATE
 
-In angular è possibile concedere la navigazione attraverso componente in due modi attraverso ActivatedRoute e Router
+In angular è possibile concedere la navigazione attraverso componente in due modi attraverso `ActivatedRoute` e `Router`
 
 - navigate() 
 - navigateByUrl()
@@ -564,13 +564,13 @@ const routes: Routes = [
 ];
 ```
 
-# PROTECTED ROUTE
+# PROTECTED ROUTE (AUTHGUARD)
 
 Angular permette la protezione delle route attraverso `guard`
 
-implementando CanActivate e authService angular tiene traccia degli snapshot delle route e ci permette di implementare controlli
+Implementando CanActivate e authService angular tiene traccia degli snapshot delle route e ci permette di implementare controlli
 
-CanActivate è anche una proprieta da inserire nelle routes che permette la navigazione solo se il guard al suo interno ritorna true
+CanActivate è anche una proprietà da inserire nelle routes che permette la navigazione solo se il guard al suo interno ritorna true
 
 ```
 routes : [
@@ -582,9 +582,86 @@ routes : [
 
 Per poter definire questi elementi prima dovremo creare sia il guard che un servizio
 
-`ng g s auth/auth` `ng g guard auth/guard`
+`ng g service auth/auth` `ng g guard auth/guard`
 
-SPIEGAZIONE DEPRECATA CERCARE INFO
+Questo perchè generalmente nel servizio andremo a impostare i valori recuperati per garantire l'accesso a un utente
+
+In questo esempio utilizziamo dati statici fittizi 
+
+Il guard vero e proprio è un "servizio" che implementa diverse funzioni che tengono traccia della route e del suo stato e che mette a disposizione
+diversi metodi da poter utilizzare per poter gestire il controllo della route, questi metodi poi dovranno ritornare un valore booleano
+
+```
+export class AuthGuard implements CanActivate , CanActivateChild{
+
+    constructor(private router: Router , private authService : AuthService) {}
+
+    canActivate(
+        route: ActivatedRouteSnapshot, //tiene traccia della route e del suo stato
+        state: RouterStateSnapshot
+    ) : any {
+        return this.authService.isAuthenticated() //funzione nel service che ritorna semplicemente true o false
+    }
+
+    canActivateChild(
+        childRoute: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot
+    ) : MaybeAsync<GuardResult> {
+        return this.authService.isAdmin();
+    }
+}
+```
+
+`canActivate` si implementa nelle route, ed è un array che contiene il nostro guard 
+
+`canActivateChild` si implementa nelle route child, ed è possibile da utilizzare per sub-controlli 
+
+In app-routing.module: 
+
+```
+const routes: Routes = [
+    { path: 'home', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'contatti', component: ContattiComponent , canActivate : [AuthGuard] , canActivateChild : [AuthGuard] , children : [
+        {path : ':id' , component: SingoloContattoComponent}
+    ]},
+    { path: '**', redirectTo: '' },
+];
+```
+
+## GUARD - Angular 15
+
+Nella nuova versione di angular è possibile creare funzioni guard e non classi
+
+Non c'è più bisogno di creare sia un service che un guard separato, adesso è possibile implementare tutto su un singolo file
+
+Questo migliora l'approccio per componenti standAlone e applicazioni più piccole
+
+```
+import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  const router = inject(Router);
+  //inject() è una funzione di angular che permette di recuperare le istanze dei servizi
+  //senza avere necessariamente un costruttore
+
+  const isLoggedIn = true;
+
+  if (isLoggedIn) {
+    return true; // Permette l'accesso
+  } else {
+    // Reindirizza alla pagina di login e blocca l'accesso
+    return router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
+  }
+};
+```
+
+`inject()` è una funzione di angular che permette di recuperare le istanze dei servizi senza avere necessariamente un costruttore.
+
+Come per la versione precedente, la route assegnata con `canActivate : [authGuard]` sarà disponibile se il valore del guard ritorna true
+
 
 # OBSERVABLE
 
