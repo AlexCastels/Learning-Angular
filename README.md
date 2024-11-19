@@ -717,7 +717,101 @@ Collegamento HTML :
 
 # MODULO HTTP
 
+Gestito tramite `RxJS : Reactive Extensions Library for JavaScript`
+
 Utilizziamo un modulo per gestire le chiamate di rete `HttpclientModule`
 
 Questo metterà a disposizione tutti i metodi per poter effettuare richieste lato client
+
+Generalmente tutte le chiamate di rete vengono settate e gestite in un service dedicato 
+
+```
+export class DataService {
+    url : string = 'https://jsonplaceholder.typicode.com/users'
+    constructor(private http : HttpClient) { }
+
+    post(url : string , body : any){
+        return this.http.post(url , body) //ritorna un Observable
+    }
+    getData(url : string){
+        return this.http.get(url)
+    }
+}
+```
+
+`http` sarà un obj che conterrà tutti i metodi per gestire le chiamate di rete, il modulo http ritornerà un Observable
+che dovremo gestire nel momento di utilizzo attraverso una sottoscrizione
+
+```
+observable.subscribe({
+    next: (data) => { /* codice eseguito in caso di successo */ },
+    error: (err) => { /* codice eseguito in caso di errore */ },
+    complete: () => { /* codice eseguito alla fine dello stream (opzionale) */ }
+});
+```
+
+il subscribe fornito da rxjs fornisce 3 metodi per gestire la chiamata, similmente al blocco try/catch/finally
+
+Dove accettano un arg nell'arrow func che rispecchiano i dati in entrata, dentro la funzione possiamo eseguire il codice
+
+Esempio di chiamata POST : 
+
+```
+    handlePost(){
+        this.dataService.post(this.url , {
+            method: 'POST',
+            body: JSON.stringify({
+                name: 'alex',
+                email: 'alex@gmail.com',
+            }),
+            headers: {
+                'Content-type': 'application/json ; charset=UTF-8',
+            },
+        }).subscribe({
+            next : (response) => {
+                console.log(response)
+                this.data = ''
+                this.message = 'Richiesta POST effettuata con successo :)'
+            } ,
+            error: (err) => {
+                console.log('Errore nella richiesta POST' , err)
+                this.message = 'Errore nella richiesta :('
+            }
+        })
+    }
+```
+
+# RXJS - Reactive Extensions Library for JavaScript
+
+RxJS semplifica il modo di scrivere JS e permette di implementare funzioni semplificate attraverso le `pipe`
+
+Le pipe prendono in ingresso più funzioni (chiamate `operatori`) e restituiscono un nuovo Observable già filtrato senza modificare l'originale
+
+## Operatori comuni utilizzati con .pipe()
+- `map`: Trasforma ogni elemento del flusso.
+- `filter`: Filtra gli elementi in base a una condizione.
+- `catchError`: Intercetta e gestisce errori.
+- `switchMap`, `mergeMap`, `concatMap`: Cambiano un flusso di dati in un altro.
+- `debounceTime`: Ritarda l'emissione dei dati per un certo tempo.
+- `take`: Limita il numero di elementi emessi.
+
+```
+constructor(private http: HttpClient) {}
+
+getUsers() {
+    this.http.get('https://api.example.com/users')
+        .pipe(
+            map(data => data['users']), // Estrae solo il campo "users" dalla risposta
+            catchError(err => {
+                console.error('Error:', err);
+                return of([]); // Ritorna un array vuoto in caso di errore
+            })
+        )
+    .subscribe(users => console.log('Users:', users)); //qui il dato arriverà già filtrato
+}
+```
+
+
+
+
 

@@ -25,19 +25,19 @@ export class HandleDataComponent{
                 email: 'alex@gmail.com',
             }),
             headers: {
-                'Content-type': 'application/json',
+                'Content-type': 'application/json ; charset=UTF-8',
             },
         }).subscribe({
             next : (response) => {
                 console.log(response)
                 this.data = ''
-                this.message = 'Richiesta POST effettuata con successo'
+                this.message = 'Richiesta POST effettuata con successo :)'
             } ,
             error: (err) => {
                 console.log('Errore nella richiesta POST' , err)
+                this.message = 'Errore nella richiesta :('
             }
         })
-
     }
 
     handleGet(){
