@@ -378,7 +378,7 @@ E' possibile creare anche pipe personalizzate, ad esempio utilizzate per delle t
 
 Le pipe hanno molte opzioni, queste vengono elencate tutte nella documentazione ufficiale.
 
-# SERVICES (CONTETX)
+# SERVICES (CONTEXT)
 
 E' la possibilità di poter estendere dei dati all'intera app o a diversi moduli specificati
 
