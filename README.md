@@ -1,4 +1,34 @@
-# CARTELLE/FILE
+## Indice
+1. [Struttura Cartelle](#cartelle-file)
+2. [Src](#src)
+3. [Creare Componente](#creare-componente)
+4. [Class Component](#class-component-typescript)
+5. [Ciclo di vita componente](#CICLO-DI-VITA-COMPONENTE)
+6. [Data Binding](#data-binding-)
+7. [Direttive](#direttive)
+8. [Parent to Child (prop)](#parent-to-child-prop)
+9. [Child to parent](#child-to-parent)
+10. [Variabile Template / ViewChild() ElementRef](#variabile-template--viewchild-riferimento-elementi-html)
+11. [Direttive personalizzate](#direttive-personalizzate)
+12. [Pipes](#pipes)
+13. [Services (Context)](#services-context)
+14. [Routing](#routing)
+15. [Router Params ](#router-params-)
+16. [Children route](#children-route)
+17. [Redirect](#redirect)
+18. [Error Handling](#error-handling)
+19. [Navigate](#navigate)
+20. [Lazy Loading](#lazy-loading)
+21. [Protected Route (AuthGuard)](#protected-route-authguard)
+22. [Guard](#guard---angular-15)
+23. [Observable](#observable)
+24. [FORM - Template Driven (Gestione HTML)](#template-driven-from-gestione-lato-html)
+25. [FORM - Reactive](#reactive-form-gestione-lato-ts)
+26. [Modulo HTTP](#modulo-http)
+27. [Mapping Data](#mapping-data)
+28. [RxJS](#rxjs---reactive-extensions-library-for-javascript)
+
+# CARTELLE FILE
 
 - .browserlistrc = contiene tutte le info sui browser e su come l'app viene buildata in ogni motore specifico
 - .editorconfig = contiene info e regole sull'editor e sullo stile effettivo del codice del progetto
@@ -32,7 +62,7 @@ cioè .html .css .spec.ts e .ts
 i componenti in angular vengono chiamati nome.component.html ecc e divisi in cartelle
 - `ng generate component` -> `ng g c nomeCopm`
 
-# CLASS COMPONENT (TYPESCRIPT)
+# CLASS COMPONENT TYPESCRIPT
 
 Le classi in ts permettono di definire la struttura di un obj con proprietà (dati) e metodi (funzioni)
 
@@ -183,7 +213,9 @@ il caricamento dei vari dati
 10. Funzione dopo che avviene il controllo della vista
 11. Funzione che avviene dopo la distruzione del comp
 
-# DATA BINDING / PASSAGGIO DI DATI TRA MODEL (LOGICA) E VIEW IN COMPONENTE
+# DATA BINDING 
+
+##### PASSAGGIO DI DATI TRA MODEL (LOGICA) E VIEW IN COMPONENTE
 
 Ci sono due tipi di passaggio di dati:
 - unidirezionale || one-way
@@ -248,7 +280,7 @@ si dividono in 3 categorie:
     - *ngIf per mettere una condizione nell'elemento per farlo apparire o fare cose
     - *ngFor per 'mappare' un array e creare per ogni membro un elemento html
 
-# *ngIF (Conditional Rendering)
+## *ngIF (Conditional Rendering)
 
 Permette di inserire condizioni per mostrare o meno elementi
 
@@ -282,7 +314,7 @@ altro esempio con then:
 
 In questo caso in maniera più coerente dichiariamo due blocchi ng-template associati a due variabili template (wrapper)
 
-# *ngFor (Mapping)
+## *ngFor (Mapping)
 
 Permette di mappare dati dentro elementi HTML in maniera dinamica. *ngFor è un attributo dell'elemento da voler ripetere
 
@@ -336,7 +368,7 @@ Inoltre sono presenti altri elementi nel *ngFor a cui poter far riferimento.
 - even : ritorna true se è dispari
 - odd : ritorna true se è pari
 
-# [ngSwitch] e *ngSwitchCase
+## [ngSwitch] e *ngSwitchCase
 
 Un altra direttiva esistente è quella dello switch
 
@@ -357,7 +389,7 @@ Dove *ngSwitchCase si occuperà effettivamente di mostrare l'elemento in base al
 
 Mentre [ngSwitch] si collegherà alla proprietà nel class component
 
-# ngStyle
+## ngStyle
 
 E' una direttiva che permette di andare a modificare direttamente lo stile di un elemento tramite il binding della direttiva stessa, funziona inserendo un obj dove poter andare a scrivere direttamente le prooprietà css da modificare, al suo interno è possibile puntare a variabili, richiamare funzioni, utilizzare condizionali.
 
@@ -372,7 +404,7 @@ Esempi:
 <div class='cerchio' [ngStyle]="{background : getColor()}">
 ```
 
-# ngClass
+## ngClass
 
 E' una direttiva che permette di modificare le classi di un elemento, bisognerà fare il binding della direttiva per poter accedere alle classi del nostro css e alle variabili del nostro componente 
 
