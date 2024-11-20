@@ -28,6 +28,8 @@
 27. [Mapping Data](#mapping-data)
 28. [RxJS](#rxjs---reactive-extensions-library-for-javascript)
 
+***
+
 # CARTELLE FILE
 
 - .browserlistrc = contiene tutte le info sui browser e su come l'app viene buildata in ogni motore specifico
@@ -40,6 +42,8 @@
 - tsconfig.app.json = configurazione per la produzione, punta ai file che servono
 - tsconfig.json = sono informazioni per il compilatore
 - tsconfig.spec.json = configurazione per il testing, punta ai file che servono
+
+***
 
 # SRC
 
@@ -56,11 +60,15 @@
     - index.html = file html primario <app-root> è il componente globale gestito da angular
     - main.ts = file iniziale del progetto angular
 
+***
+
 # CREARE COMPONENTE
 Questo comando permette di creare un nuovo componente, tramite Angular CLI verranno creati tutti i file per gestire un comp
 cioè .html .css .spec.ts e .ts
 i componenti in angular vengono chiamati nome.component.html ecc e divisi in cartelle
 - `ng generate component` -> `ng g c nomeCopm`
+
+***
 
 # CLASS COMPONENT TYPESCRIPT
 
@@ -177,6 +185,8 @@ persona.eta = 30;        // Usa il setter
 
 - Una classe può implementare una o più interfacce 'sottoscrivendosi a un contratto' , garantendo che venga soddisfatto
 
+***
+
 # CICLO DI VITA COMPONENTE
 
 <img src='./public/img/CicloComp.jpg' width=400>
@@ -212,6 +222,8 @@ il caricamento dei vari dati
 9. Funzione dopo che avviene il controllo del contenuto
 10. Funzione dopo che avviene il controllo della vista
 11. Funzione che avviene dopo la distruzione del comp
+
+***
 
 # DATA BINDING 
 
@@ -266,6 +278,8 @@ esempio: <input [(ngModel)]='variabile'> così facendo colleghiamo un input ad u
 
 ngModel che fa parte del FormModel di Angular si occupera di gestire la variabile puntata, in questo caso è un utilizzo di property ed event binding contemporaneo gestito da ngModel, connette la variabile tramite un output e un input del dato.
 Dunque ngModel non avrà bisogno di essere associato ad un metodo, esso stesso è un metodo che gestisce il tutto.
+
+***
 
 # DIRETTIVE
 
@@ -414,6 +428,8 @@ E' una direttiva che permette di modificare le classi di un elemento, bisognerà
 <div class = 'cerchio' [ngClass]="{condizione ? 'classe1' : 'classe2'}">
 ```
 
+***
+
 # PARENT TO CHILD (PROP)
 
 Bisogna utilizzare un decoratore @Input di angular/core per poter indicare al nostro componente che riceverà dei dati dall'esterno
@@ -424,9 +440,11 @@ Per poter ricevere dati, utilizziamo il property binding per poter puntare alla 
 
 <child [data]="dato">
 
+***
+
 # CHILD TO PARENT
 
-E' possibile anche mandare dati dal comp figlio al comp padre tramite un EventEmitter che dovremo collegare al dato che vogliamo mandare , il tutto tramite un decoratore @Output.
+È possibile anche mandare dati dal comp figlio al comp padre tramite un EventEmitter che dovremo collegare al dato che vogliamo mandare , il tutto tramite un decoratore @Output.
 
 Creiamo un nuovo emitter dove poi andremo a dichiarare quali dati mandare tramite un evento che lancerà l'emitter. 'mandaDatiEvento' sarà l'emitter in sè
 
@@ -441,7 +459,7 @@ myFunction(){
 }
 ```
 
-dopo di che dovremo lanciare questa funzione per generare l'eventEmitter, nell'esempio un btn ma potrebbe essere anche una funzione del ciclo di vita del componente ad esempio
+Dopo di che dovremo lanciare questa funzione per generare l'eventEmitter, nell'esempio un btn ma potrebbe essere anche una funzione del ciclo di vita del componente ad esempio
 
 Fatto questo bisognerà anche creare il collegamento con la funzione nel componente padre, dove nel child dichiarato punteremo all'emitter e dichiareremo una funzione che conterrà l'evento e che potremo utilizzare e richiamare nel componente padre, $event in sè conterrà i dati da noi mandati e dichiarati (nell'esempio una stringa)
 
@@ -452,6 +470,8 @@ Fatto questo bisognerà anche creare il collegamento con la funzione nel compone
 riceviDati() sarà cos' accessibile al padre
 
 Questo è un modo per poter mandare dati in modo inverso
+
+***
 
 # VARIABILE TEMPLATE / VIEWCHILD() (Riferimento elementi HTML)
 
@@ -475,6 +495,8 @@ adesso la variabile mioInput conterrà l'obj che fa riferimento all'input e al s
 ```
 value = this.mioInput.nativeElement.value
 ```
+
+***
 
 # DIRETTIVE PERSONALIZZATE
 
@@ -505,6 +527,8 @@ le direttive possono inoltre ricevere dati da altri componenti, e sono disponibi
 
 Più dettagli e spiegazioni nel componente custom-directive.ts
 
+***
+
 # PIPES
 
 Le pipe sono delle funzioni specifiche per gli elementi in string interpolation {{var}}
@@ -520,21 +544,23 @@ Esempi:
 - `{{number | percent}}` `{{nome | percent:'2.2-4'}}` -> indichiamo la percentuale ed eventuali decimali
 - `{{number | currency:'EUR'}}` `{{number | currency:'EUR':'code'}}` -> gestiamo la currency 
 
-Le pipe sono funzione messe a disposizione da angular per modificare velocemente alcuni dati immessi nelle {{}}
-E' possibile creare anche pipe personalizzate, ad esempio utilizzate per delle traduzioni
+Le pipe sono funzione messe a disposizione da angular per modificare velocemente alcuni dati immessi nelle `{{}}`
+È possibile creare anche pipe personalizzate, ad esempio utilizzate per delle traduzioni
 
 Le pipe hanno molte opzioni, queste vengono elencate tutte nella documentazione ufficiale.
 
+***
+
 # SERVICES (CONTEXT)
 
-E' la possibilità di poter estendere dei dati all'intera app o a diversi moduli specificati
+È la possibilità di poter estendere dei dati all'intera app o a diversi moduli specificati
 
 Slega i componenti dalla relazione padre figlio, ed evita il "Prop drilling"
 
-un service viene creato con `ng generate service nomeServizio` -> `ng g s nomeServizio`
+Un service viene creato con `ng generate service nomeServizio` -> `ng g s nomeServizio`
 
-è composto da un decoratore `@Injectable` che sta ad indicare che può 'iniettare' dati
-e possiede una proprietà provideIn che sta ad indicare il suo scope di utilizzo
+è composto da un decoratore `@Injectable` che sta a indicare che può 'iniettare' dati
+e possiede una proprietà provideIn che sta a indicare il suo scope di utilizzo
 
 Se impostato su 'root' sarà accessibile ovunque, altrimenti bisognerà specificare il module
 
@@ -545,10 +571,12 @@ Per accedere ad un servizio invece, bisognerà richiamarlo dentro il constructor
         data = this.variabilePerServizio.array(o metodo ecc ecc)
     }
 ```
-E' importante definire se i dati devono essere public o private per poter accedervi in questa maniera tramite constructor
+È importante definire se i dati devono essere public o private per poter accedervi in questa maniera tramite constructor
 
-dunque in questa maniera avremo accesso ai dati o ai metodi contenuti nel servizio definito
+Dunque in questa maniera avremo accesso ai dati o ai metodi contenuti nel servizio definito
 è buona norma scollegare il componente dalla logica, e quindi utilizzare i servizi per contenerla
+
+***
 
 # ROUTING
 
@@ -566,10 +594,11 @@ Per poter poi mostrare effettivamente il componente dovremo utilizzare il tag `<
 
 Per poter navigare verso quel componente abbiamo a disposizione un attributo chiamato `routerLink="/"` specificando il path
 
+***
 
 # ROUTER PARAMS 
 
-E' possibile accedere al parametro di una route inserendo in primis il parametro nel path
+È possibile accedere al parametro di una route inserendo in primis il parametro nel path
 
 ```
 const routes : [
@@ -595,6 +624,8 @@ id = this.route.snapshot.paramMap.get('id')
 Accedendo in questa maniera al parametro il valore sarà statico, questo perchè viene fatto uno `snapshot`
 
 Se si vuole tenere traccia in modo costante del cambiamento del parametro bisognerà utilizzare il `subscribe`
+
+***
 
 # CHILDREN ROUTE
 
@@ -630,13 +661,17 @@ a video dati sempre aggiornati
 
 Questo perchè il passaggio dei dati viene in modo asincrono
 
+***
+
 # REDIRECT
 
-E' un parametro da potr specificare nell'obj delle routes
+È un parametro da poter specificare nell'obj delle routes
 
 `redirectTo: '/path'` permette di reindirizzare verso un path specifico
 
 `pathMatch: 'full/prefix'` permette di avviare un controllo sull'intero path o prefisso
+
+***
 
 # ERROR HANDLING
 
@@ -651,6 +686,8 @@ const routes : [
     { path : '**' , component : NotFoundComponent}
 ]
 ```
+
+***
 
 # NAVIGATE
 
@@ -692,6 +729,8 @@ ngOnInit(): void {
 
 navigateByUrl() invece cambia totalmente l'intero URL specificato al suo interno
 
+***
+
 # LAZY LOADING
 
 Il lazy loading in react permette di limitare la quantità di componenti che caricano nell'app
@@ -710,6 +749,8 @@ const routes: Routes = [
   }
 ];
 ```
+
+***
 
 # PROTECTED ROUTE (AUTHGUARD)
 
@@ -776,7 +817,9 @@ const routes: Routes = [
 ];
 ```
 
-## GUARD - Angular 15
+***
+
+# GUARD - Angular 15
 
 Nella nuova versione di angular è possibile creare funzioni guard e non classi
 
@@ -809,6 +852,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 Come per la versione precedente, la route assegnata con `canActivate : [authGuard]` sarà disponibile se il valore del guard ritorna true
 
+***
 
 # OBSERVABLE
 
@@ -845,7 +889,7 @@ new Observable(observer => {
 
 ```
 
-E' possibile anche utilizzare unsubscribe anche perchè un osservatore una volta avviato rimane sempre attivo.
+È possibile anche utilizzare unsubscribe anche perchè un osservatore una volta avviato rimane sempre attivo.
 
 Dunque utilizziamo `unsubscribe` in ngOnDestroy() per poter terminare la sottoscrizione al dato
 
@@ -876,7 +920,7 @@ tramite `ngModel` e un name
 <input type="text" name="firstName" ngModel>
 ```
 
-E' possibile accedere ai dati anche attraverso `ViewChild()` associando l'interfaccia NgForm
+È possibile accedere ai dati anche attraverso `ViewChild()` associando l'interfaccia NgForm
 
 ```
 ViewChild('mioForm') mioForm : NgForm
@@ -887,15 +931,17 @@ anche queste possono essere utilizzate per effettuare controlli extra sull'eleme
 
 Angular inoltre mette a disposizione degli attributi per effettuare controlli aggiuntivi negli input
 
-ad esempio `<input type='email' required email>` email è un controllo di validazione aggiuntivo fornito da angular
+Ad esempio `<input type='email' required email>` email è un controllo di validazione aggiuntivo fornito da angular
 
 Nell'obj i dati degli input collegati sono contenuti in .value 
+
+***
 
 # REACTIVE FORM  (GESTIONE LATO TS)
 
 Bisogna importare `ReactiveFormModule`
 
-E' la possibilità di gestire i form lato class ts, per poter fare questo utilizzeremo il `FormGroup` che darà la possibilità
+È la possibilità di gestire i form lato class ts, per poter fare questo utilizzeremo il `FormGroup` che darà la possibilità
 di poter creare un obj collegato al form contenendo i `FormControl`, che vengono collegati direttamente agli input
 
 ```
@@ -940,6 +986,8 @@ Collegamento HTML :
 `<form class="formContainer" [formGroup]="form">`
 
 `<input type="email" name="email" formControlName="email">`
+
+***
 
 # MODULO HTTP
 
@@ -1016,6 +1064,8 @@ Differenza tra put e patch:
 - `put` : Aggiunge elementi o sostituisce un elemento, si aspetta l'intera entità da sostituire
 - `patch` : Modifica l'attuale record , anche solo in parte 
 
+***
+
 # MAPPING DATA
 
 Può capitare di ricevere dei dati in risposta che non sono iterabili per poter effettuare un ciclo *ngFor che si aspetta generalmente un array di obj
@@ -1039,6 +1089,8 @@ Per poter evitare questo problema andiamo a modificare la visione dei dati in en
 `.map((key) => { return data[key] })` mappiamo questo array per ottenere le chiavi e ritornare un array levando il primo elemento ID
 
 Esempio legato al ritorno di dati di FireBase dove l'array non è pulito ma ritorna prima un Id seriale e poi l'obj
+
+***
 
 # RXJS - Reactive Extensions Library for JavaScript
 
