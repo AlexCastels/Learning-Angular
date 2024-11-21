@@ -1125,6 +1125,24 @@ getUsers() {
 }
 ```
 
+## Mondo asincrono 
+
+Un Observable è diverso da una promise per diverse caratteristiche
+
+* Observable: Un Observable può emettere più valori nel tempo. È un flusso di dati che può emettere più eventi. 
+              Può inviare dati, errori o un segnale di completamento più volte.
+
+
+* Promise: Una Promise emette un solo valore o un errore, e si risolve una sola volta. 
+           Non può emettere più valori successivi dopo che è stata risolta o rigettata.
+
+Innanzitutto bisogna sottoscriversi per poter ottenere i suoi valori attraverso `.subscribe()`
+
+Dunque un observable permette anche di poter emettere più valori nel tempo tramite la funzione `next()`
+
+E infine per poter terminare l'esecuzione bisognerà disinscriversi tramite `.unsubscribe()`
+
+
 
 
 
