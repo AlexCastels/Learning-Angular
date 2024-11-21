@@ -1102,6 +1102,7 @@ RxJS semplifica il modo di scrivere JS e permette di implementare funzioni sempl
 Le pipe prendono in ingresso più funzioni (chiamate `operatori`) e restituiscono un nuovo Observable già filtrato senza modificare l'originale
 
 ## Operatori comuni utilizzati con .pipe()
+
 - `map`: Trasforma ogni elemento del flusso.
 - `filter`: Filtra gli elementi in base a una condizione.
 - `catchError`: Intercetta e gestisce errori.
@@ -1131,16 +1132,33 @@ Un Observable è diverso da una promise per diverse caratteristiche
 
 * Observable: Un Observable può emettere più valori nel tempo. È un flusso di dati che può emettere più eventi. 
               Può inviare dati, errori o un segnale di completamento più volte.
+              Viene definito `lazy` (pigro), il che significa che il flusso di dati non viene avviato finché non ci si sottoscrive a esso. 
+              In altre parole, l'operazione asincrona non inizia fino a quando non viene attivata con il metodo subscribe.
 
 
 * Promise: Una Promise emette un solo valore o un errore, e si risolve una sola volta. 
            Non può emettere più valori successivi dopo che è stata risolta o rigettata.
+           Viene definita `eager` (affamata), cioè l'operazione asincrona viene avviata non appena la Promise viene creata, 
+           indipendentemente dal fatto che la si stia poi utilizzando o meno.
 
 Innanzitutto bisogna sottoscriversi per poter ottenere i suoi valori attraverso `.subscribe()`
 
 Dunque un observable permette anche di poter emettere più valori nel tempo tramite la funzione `next()`
 
 E infine per poter terminare l'esecuzione bisognerà disinscriversi tramite `.unsubscribe()`
+
+```
+const observable = new Observable(observer => {
+  console.log('Inizio operazione');
+  observer.next('Dati');
+  observer.complete();
+});
+
+// L'operazione non viene eseguita finché non ci si sottoscrive
+observable.subscribe(value => console.log(value));
+```
+
+
 
 
 
