@@ -856,7 +856,10 @@ Come per la versione precedente, la route assegnata con `canActivate : [authGuar
 
 # OBSERVABLE
 
-Con observable intendiamo il fatto di potersi sottoscrivere per tenere traccia dei cambiamenti di dati nel tempo
+Fanno parte di `RxJS`
+
+Con observable intendiamo il fatto di potersi sottoscrivere per tenere traccia dei cambiamenti di dati nel tempo, viene
+utilizzato prettamente per gestire il codice asincrono, come richieste http o passaggio di dati.
 
 Per fare questo utilizziamo `.subscribe((dato) => log.(dato))` che permette di ascoltare i cambiamenti e di ritornare
 il valore e poterlo utilizzare e leggere. (come visto nel routing)
