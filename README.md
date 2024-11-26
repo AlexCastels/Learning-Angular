@@ -175,15 +175,19 @@ class Persona {
     }
 }
 
-const persona = new Persona(25);
-console.log(persona.eta); // Usa il getter
-persona.eta = 30;        // Usa il setter
+const persona = new Persona(25); //vengono richiamate come se fossero proprietà della classe
+console.log(persona.eta); // Usa il getter, sta solo recuperando il valore
+persona.eta = 30;        // Usa il setter, sta settando la variabile con un valore
 
 ```
 
+Queste due funzioni sono speciali e vanno interpretate come se fossero variabili e non funzioni vere e proprie
+
+Per poter accedere al loro valore basterà richiamarle senza esplicitamente inserire le `()`
+
 ### Implementazione Interfacce
 
-- Una classe può implementare una o più interfacce 'sottoscrivendosi a un contratto' , garantendo che venga soddisfatto
+- Una classe può implementare una o più interfacce "sottoscrivendosi a un contratto", garantendo che venga soddisfatto
 
 ***
 
