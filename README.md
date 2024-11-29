@@ -471,7 +471,9 @@ Fatto questo bisognerà anche creare il collegamento con la funzione nel compone
 <child (mandaDatiEvento)="riceviDati($event)">
 ```
 
-riceviDati() sarà cos' accessibile al padre
+riceviDati() sarà cosi' accessibile al padre
+
+Stiamo creando a tutti gli effetti un evento che potrà essere ascoltato dal componente `(evento)`
 
 Questo è un modo per poter mandare dati in modo inverso
 
