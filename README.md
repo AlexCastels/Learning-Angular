@@ -424,13 +424,16 @@ Esempi:
 
 ## ngClass
 
-E' una direttiva che permette di modificare le classi di un elemento, bisognerà fare il binding della direttiva per poter accedere alle classi del nostro css e alle variabili del nostro componente 
+È una direttiva che permette di modificare le classi di un elemento, bisognerà fare il binding della direttiva per poter accedere alle classi del nostro css e alle variabili del nostro componente 
 
 ```
 <div class = 'cerchio' [ngClass]="{'classe' : condizione, 'classe' : condizione}">
 <div class = 'cerchio' [ngClass]="{'classe' : condizione, 'classe' : condizione, 'classe1 classe2' : condizione}">
 <div class = 'cerchio' [ngClass]="{condizione ? 'classe1' : 'classe2'}">
+[ngClass]="[condizione ? 'bg-green-500' : 'bg-red-500']
 ```
+
+È possibile anche racchiudere le condizioni in un array []
 
 ***
 
@@ -442,7 +445,7 @@ Bisogna utilizzare un decoratore @Input di angular/core per poter indicare al no
 
 Per poter ricevere dati, utilizziamo il property binding per poter puntare alla variabile e associargli un dato
 
-<child [data]="dato">
+`<child [data]="variabileDiCollegamento">`
 
 ***
 
@@ -471,7 +474,7 @@ Fatto questo bisognerà anche creare il collegamento con la funzione nel compone
 <child (mandaDatiEvento)="riceviDati($event)">
 ```
 
-riceviDati() sarà cosi' accessibile al padre
+riceviDati() sarà cosi' accessibile al padre, ed il suo contenuto è ricevuto sotto forma di evento ed accessibile tramite $event
 
 Stiamo creando a tutti gli effetti un evento che potrà essere ascoltato dal componente `(evento)`
 
