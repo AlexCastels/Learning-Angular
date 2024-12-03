@@ -1175,23 +1175,25 @@ observable.subscribe(value => console.log(value));
 In angular questo è reso possibile attraverso una funzionalità particolare di typescript e l'analisi costante del DOM
 
 ```
-private _count = 0;
+    private _count = 0;
 
-get count(): number {
-    return this._count;
-}
+    get count(): number {
+        return this._count;
+    }
 
-set count(value: number) {
-    this._count = value;
-}
+    set count(value: number) {
+        this._count = this.count + value;
+    }
 
-increment(){
-    this.count = 1
-}
+    increment(){
+        this.count = 1
+    }
 
-increment(){
-    this.count = -1
-}
+    decrement(){
+        if(this._count > 0){
+            this.count = -1
+        }
+    }
 ```
 
 Setter e getter rendono disponibili delle variabili all'interno di una classe, il setter viene dichiarato come una funzione
