@@ -27,6 +27,7 @@
 26. [Modulo HTTP](#modulo-http)
 27. [Mapping Data](#mapping-data)
 28. [RxJS](#rxjs---reactive-extensions-library-for-javascript)
+29. [Variabile dinamica](#variabile-dinamica-)
 
 ***
 
@@ -1166,6 +1167,42 @@ const observable = new Observable(observer => {
 // L'operazione non viene eseguita finché non ci si sottoscrive
 observable.subscribe(value => console.log(value));
 ```
+
+# VARIABILE DINAMICA 
+
+È possibile utilizzare getter e setter nel nostro componente per poter manipolare variabili in modo dinamico
+
+In angular questo è reso possibile attraverso una funzionalità particolare di typescript e l'analisi costante del DOM
+
+```
+private _count = 0;
+
+get count(): number {
+    return this._count;
+}
+
+set count(value: number) {
+    this._count = value;
+}
+
+increment(){
+    this.count = 1
+}
+
+increment(){
+    this.count = -1
+}
+```
+
+Setter e getter rendono disponibili delle variabili all'interno di una classe, il setter viene dichiarato come una funzione
+
+Ma viene utilizzato come se fosse una variabile, e incrementa sempre la variabile al valore passato, non c'è bisogno dunque delle `()`
+
+In questo caso accetta un value numerico e passando 1 o -1 aggiornerà sempre la variabile
+
+Angular riesce ad 'ascoltare' questi cambiamenti tramite il binding definiti nel template HTML, dunque al cambiamento di qualcosa nel DOM di conseguenza
+viene aggiornato il componente, a differenza di React dunque non avviene un ascolto attivo lato logica TS
+
 
 
 
