@@ -6,8 +6,8 @@
 5. [Ciclo di vita componente](#CICLO-DI-VITA-COMPONENTE)
 6. [Data Binding](#data-binding-)
 7. [Direttive](#direttive)
-8. [Parent to Child (prop)](#parent-to-child-prop)
-9. [Child to parent](#child-to-parent)
+8. [Parent to Child (@Input) (prop)](#parent-to-child-prop)
+9. [Child to parent (@Output) ](#child-to-parent)
 10. [Variabile Template / ViewChild() ElementRef](#variabile-template--viewchild-riferimento-elementi-html)
 11. [Direttive personalizzate](#direttive-personalizzate)
 12. [Pipes](#pipes)
@@ -438,7 +438,7 @@ Esempi:
 
 ***
 
-# PARENT TO CHILD (PROP)
+# PARENT TO CHILD @Input (PROP)
 
 Bisogna utilizzare un decoratore @Input di angular/core per poter indicare al nostro componente che riceverà dei dati dall'esterno
 
@@ -450,7 +450,7 @@ Per poter ricevere dati, utilizziamo il property binding per poter puntare alla 
 
 ***
 
-# CHILD TO PARENT
+# CHILD TO PARENT @Output
 
 È possibile anche mandare dati dal comp figlio al comp padre tramite un EventEmitter che dovremo collegare al dato che vogliamo mandare , il tutto tramite un decoratore @Output.
 
