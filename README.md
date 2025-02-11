@@ -448,6 +448,24 @@ Per poter ricevere dati, utilizziamo il property binding per poter puntare alla 
 
 `<child [data]="variabileDiCollegamento">`
 
+I cambiamenti di un @Input possono essere tracciati attraverso `ngOnChanges()`
+
+```
+	ngOnChanges(changes: SimpleChanges) {
+		if (changes['myVariable']) {
+			 console.log('myVariable è cambiato!');
+            console.log('Valore precedente:', changes['myVariable'].previousValue);
+            console.log('Nuovo valore:', changes['myVariable'].currentValue);
+		}
+	}
+
+```
+
+L'oggetto changes è una mappa che contiene solo gli @Input() che hanno effettivamente cambiato valore.
+
+ngOnChanges() non viene chiamato se il valore assegnato è lo stesso di prima!
+Se si assegna due volte lo stesso valore alla variabile, Angular non considera questo come un "cambiamento" e ngOnChanges() non si attiva.
+
 ***
 
 # CHILD TO PARENT @Output
